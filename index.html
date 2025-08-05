@@ -8,10 +8,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --red-cottage-red: #8B2635;
-            --red-cottage-dark: #2C3E50;
-            --red-cottage-light: #F8F6F0;
-            --red-cottage-beige: #F5F1E8;
+            --red-cottage-red: #333333; /* Changed to dark gray */
+            --red-cottage-dark: #222222; /* Changed to darker gray */
+            --red-cottage-light: #f7f7f7; /* Light gray */
+            --red-cottage-beige: #f2f2f2; /* Very light gray */
         }
 
         * {
@@ -159,13 +159,14 @@
         /* Reviews Section */
         .reviews-section {
             padding: 80px 0;
-            background: var(--red-cottage-light);
+            background: #f7f7f7; /* Light gray background */
+            position: relative;
         }
 
         .reviews-title {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--red-cottage-dark);
+            color: #333; /* Dark gray text */
             margin-bottom: 50px;
             font-weight: 300;
         }
@@ -174,12 +175,14 @@
             position: relative;
             overflow: hidden;
             padding-bottom: 60px;
+            height: 400px; /* Fixed height */
         }
         
         .reviews-slider {
             width: 100%;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease; /* Smoother transition */
+            height: 100%;
         }
         
         .reviews-slide {
@@ -187,9 +190,10 @@
             opacity: 0;
             visibility: hidden;
             position: absolute;
-            transition: opacity 0.5s ease;
+            transition: all 0.8s ease; /* Smoother transition */
             left: 0;
             top: 0;
+            height: 100%;
         }
         
         .reviews-slide.active {
@@ -203,12 +207,16 @@
             padding: 40px;
             border-radius: 10px;
             margin: 20px;
-            min-height: 300px;
+            height: 380px; /* Fixed height */
             /* box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #f0f0f0;
+            /* border: 1px solid #eaeaea; */
+            /* overflow-y: auto; Allow scrolling if content is too long */
         }
 
+        .review-card:hover {
+            /* box-shadow: 0 8px 20px rgba(0,0,0,0.1); */
+        }
 
         .review-header {
             display: flex;
@@ -217,7 +225,7 @@
         }
 
         .review-icon {
-            color: var(--red-cottage-red);
+            color: #333; /* Dark gray */
             font-size: 1.5rem;
             margin-right: 15px;
         }
@@ -225,23 +233,23 @@
         .review-title {
             font-size: 1.3rem;
             font-weight: 600;
-            color: var(--red-cottage-dark);
+            color: #333; /* Dark gray */
         }
 
         .stars {
-            color: #FFD700;
+            color: #333; /* Dark gray */
             margin: 10px 0;
         }
 
         .review-date {
-            color: #666;
+            color: #777; /* Medium gray */
             font-size: 0.9rem;
             margin-bottom: 15px;
         }
 
         .review-text {
             line-height: 1.8;
-            color: #555;
+            color: #555; /* Dark gray */
             font-style: italic;
         }
         
@@ -268,27 +276,29 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 0 15px;
-            /* box-shadow: 0 3px 10px rgba(0,0,0,0.05); */
+            /* box-shadow: 0 3px 10px rgba(0,0,0,0.1); */
         }
         
-
-
-        /* .review-nav-btn:hover {
-            background: var(--red-cottage-red);
-            color: white;
-            transform: translateY(-2px);
-        } */
+        .review-nav-btn:hover {
+            /* background: #333; */
+            color: #000000;
+            /* transform: translateY(-2px); */
+        }
+        
         .prev-btn {
             position: absolute;
             left: -2%;
             top: 50%;
+            transform: translateY(-50%);
             font-size: 1.2rem;
             z-index: 10;
         }
+        
         .next-btn {
             position: absolute;
             right: -2%;
             top: 50%;
+            transform: translateY(-50%);
             font-size: 1.2rem;
             z-index: 10;
         }
@@ -310,7 +320,7 @@
         }
         
         .review-dot.active {
-            background: var(--red-cottage-red);
+            background: #333; /* Dark gray */
             width: 12px;
             height: 12px;
         }
@@ -483,9 +493,9 @@
 
         /* Newsletter Section */
         .newsletter-section {
-            background: #222;
+            background: #888686;
             color: white;
-            padding: 80px 0;
+            padding: 40px 0;
         }
 
         .newsletter-content {
@@ -602,6 +612,7 @@
 
         .footer-section ul {
             list-style: none;
+            padding-left: 0;
         }
 
         .footer-section ul li {
@@ -743,10 +754,12 @@
             background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
             background-position: center;
             transition: transform 0.5s ease;
+            filter: grayscale(30%); /* Apply grayscale filter for theme consistency */
         }
 
         .attraction-card:hover .card-background {
             transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
         .card-overlay {
@@ -755,18 +768,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             transition: background 0.3s ease;
         }
 
         .attraction-card:hover .card-overlay {
-            background: rgba(168, 41, 41, 0.5);
+            background: rgba(0, 0, 0, 0.6);
         }
 .design-card-content {
             position: absolute;
             bottom: 30px;
             left: 30px;
             color: white;
+            transition: opacity 0.4s ease;
         }
 
         .design-card h3 {
@@ -774,9 +788,9 @@
             font-weight: 300;
             margin-bottom: 10px;
         }
-       .attraction-card:hover .design-card h3{
+        
+        .attraction-card:hover .design-card-content {
             opacity: 0;
-            
         }
         .card-content {
             position: absolute;
@@ -787,7 +801,7 @@
             color: white;
             transform: translateY(20px);
             opacity: 0;
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
         }
 
         .attraction-card:hover .card-content {
@@ -814,6 +828,7 @@
             align-items: center;
             gap: 10px;
             background: transparent;
+            /* border: 1px solid white; */
             border: none;
             color: white;
             padding: 12px 25px;
@@ -826,9 +841,10 @@
         }
 
         .explore-btn:hover {
-            background: white;
-            color: #333;
+            /* background: white; */
+            color: #ffffff;
             transform: translateX(5px);
+            /* border-color: white; */
         }
 
         .explore-btn i {
@@ -989,7 +1005,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
                         <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg')">
-                            <div class="property-rating">★5</div>
+                            <!-- <div class="property-rating">★5</div> -->
                         </div>
                         <div class="property-content">
                             <h3 class="property-title">Knickerbocker Knoll</h3>
@@ -1026,8 +1042,8 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
                         <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg');">
-                            <div class="property-badge new">NEW</div>
-                            <div class="property-rating">★5</div>
+                            <!-- <div class="property-badge new">NEW</div>
+                            <div class="property-rating">★5</div> -->
                         </div>
                         <div class="property-content">
                             <h3 class="property-title">Red Hill House</h3>
@@ -1076,11 +1092,12 @@
         <div class="container">
             <h2 class="reviews-title">What Our Guests Are Saying</h2>
             <div class="reviews-slider-container position-relative">
+                <button class="review-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="review-nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
                 <div class="reviews-slider">
-                    <button class="review-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <div class="reviews-slide active">
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="review-card">
                                     <div class="review-header">
@@ -1119,7 +1136,7 @@
                                         </div>
                                     </div>
                                     <div class="review-text">
-                                        We had a great stay at The Gables house in Callicoon. The house was clean and organized, some parts of the house were even nicer than the photos, the beds were comfy, and the house clean and spacious. The kitchen may be the most well-stocked we have seen in terms of lots of pots/pans, knives that actually cut, large bowls, dishes, gadgets, cookies utensils, etc.
+                                        We had a great stay at The Gables house in Callicoon. The house was clean and organized, some parts of the house were even nicer than the photos, the beds were comfy, and the house clean and spacious.
                                     </div>
                                 </div>
                             </div>
@@ -1165,14 +1182,12 @@
                                         </div>
                                     </div>
                                     <div class="review-text">
-                                        Perfect weekend getaway! The kitchen was fully equipped for our cooking needs and the hot tub was divine after a day of hiking. The property manager was very responsive to our questions. Highly recommend!
+                                        Perfect weekend getaway! The kitchen was fully equipped for our cooking needs and the hot tub was divine after a day of hiking. The property manager was very responsive to our questions.
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="review-nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-
                 </div>
                 <div class="reviews-navigation">
                     <div class="reviews-dots">
@@ -1301,8 +1316,8 @@
                     <ul>
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="mailto:rentals@redcottage.com">rentals@redcottage.com</a></li>
-                        <li><a href="mailto:events@redcottage.com">events@redcottage.com</a></li>
-                        <li><a href="tel:(845)414-0540">(845) 414-0540</a></li>
+                        <li><a href="mailto:info@bentonvillelodgingco.com"> info@bentonvillelodgingco.com</a></li>
+                        <li><a href="tel:715-220-3639">715-220-3639</a></li>
                         <!-- <li><a href="#">Careers</a></li>
                         <li><a href="#">Agents</a></li> -->
                     </ul>
@@ -1371,7 +1386,7 @@
 
        
         
-        // Reviews carousel functionality
+        // Reviews carousel functionality with enhanced smooth transitions
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize the review slider
             const slides = document.querySelectorAll('.reviews-slide');
@@ -1380,11 +1395,21 @@
             const nextBtn = document.querySelector('.next-btn');
             let currentSlide = 0;
             const totalSlides = slides.length;
+            let slideInterval;
+            let isAnimating = false;
             
-            // Function to show specific slide
+            // Function to show specific slide with smooth transition
             function showSlide(slideIndex) {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                // Reset animation timer
+                clearInterval(slideInterval);
+                
                 // Hide all slides
                 slides.forEach(slide => {
+                    slide.style.opacity = '0';
+                    slide.style.visibility = 'hidden';
                     slide.classList.remove('active');
                 });
                 
@@ -1393,16 +1418,37 @@
                     dot.classList.remove('active');
                 });
                 
-                // Show the current slide and dot
-                slides[slideIndex].classList.add('active');
-                dots[slideIndex].classList.add('active');
-                
-                currentSlide = slideIndex;
+                // Show the current slide with transition
+                setTimeout(() => {
+                    slides[slideIndex].classList.add('active');
+                    slides[slideIndex].style.opacity = '1';
+                    slides[slideIndex].style.visibility = 'visible';
+                    dots[slideIndex].classList.add('active');
+                    
+                    currentSlide = slideIndex;
+                    isAnimating = false;
+                    
+                    // Restart automatic slide change
+                    startSlideTimer();
+                }, 300);
             }
+            
+            // Function to start the slide timer
+            function startSlideTimer() {
+                slideInterval = setInterval(function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= totalSlides) newIndex = 0;
+                    showSlide(newIndex);
+                }, 8000); // Change slide every 8 seconds
+            }
+            
+            // Start the timer initially
+            startSlideTimer();
             
             // Event listeners for navigation buttons
             if (prevBtn) {
                 prevBtn.addEventListener('click', function() {
+                    if (isAnimating) return;
                     let newIndex = currentSlide - 1;
                     if (newIndex < 0) newIndex = totalSlides - 1;
                     showSlide(newIndex);
@@ -1411,6 +1457,7 @@
             
             if (nextBtn) {
                 nextBtn.addEventListener('click', function() {
+                    if (isAnimating) return;
                     let newIndex = currentSlide + 1;
                     if (newIndex >= totalSlides) newIndex = 0;
                     showSlide(newIndex);
@@ -1420,16 +1467,10 @@
             // Event listeners for dots
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', function() {
+                    if (isAnimating) return;
                     showSlide(index);
                 });
             });
-            
-            // Automatic slide change
-            setInterval(function() {
-                let newIndex = currentSlide + 1;
-                if (newIndex >= totalSlides) newIndex = 0;
-                showSlide(newIndex);
-            }, 8000); // Change slide every 8 seconds
         });
 
         // Newsletter form submission
