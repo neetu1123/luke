@@ -38,7 +38,8 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--text-light);
+                        background: var(--background-light);
+
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -70,9 +71,10 @@
         .navbar-nav .nav-link {
             color: var(--text-dark) !important;
             font-weight: 500;
-            margin: 0 15px;
+            margin: 0 6px;
             transition: all 0.3s ease;
             position: relative;
+            
         }
 
         .navbar-nav .nav-link:hover {
@@ -133,7 +135,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* background: rgba(0,0,0,0.4); */
+            /* background: var(--background-light); */
         }
 
         .search-container {
@@ -143,10 +145,12 @@
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             max-width: 800px;
-            bottom: -30px;
+            bottom: -50px;
             width: 90%;
             z-index: 3;
             border: 1px solid var(--grey-light);
+            /* background-color: var(--background-light); */
+
         }
 
         .search-form {
@@ -200,7 +204,7 @@
 
         .btn-search:hover {
             background-color: var(--primary-accent);
-            transform: translateY(-2px);
+            /* transform: translateY(-2px); */
         }
 
         .help-link {
@@ -219,12 +223,28 @@
 
        
         /* Reviews Section */
-        .reviews-section {
-            padding: 100px 0;
-            background: var(--highlight-bg); /* Charcoal background */
-            position: relative;
-            color: var(--text-light);
-        }
+      .reviews-section {
+    position: relative;
+    padding: 100px 0;
+    color: var(--text-light);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.reviews-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('wave-haikei (1).png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scaleY(-1); /* flips vertically */
+    z-index: -1; /* keeps the image behind the content */
+}
 
         .reviews-title {
             text-align: center;
@@ -276,16 +296,22 @@
 
         .review-header {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
             padding-bottom: 20px;
+        }
+        
+        .review-header > div:first-child {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
         }
 
         .review-icon {
             color: var(--text-light);
             font-size: 1.5rem;
-            margin-right: 15px;
+            margin-right: 10px;
         }
 
         .review-title {
@@ -296,13 +322,13 @@
 
         .stars {
             color: var(--grey-mid);
-            margin: 15px 0;
+            margin: 0;
         }
 
         .review-date {
             color: var(--grey-mid);
             font-size: 0.9rem;
-            margin-bottom: 20px;
+            margin-bottom: 0;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -340,7 +366,7 @@
         }
         
         .review-nav-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            /* background-color: rgba(255, 255, 255, 0.1); */
         }
         
         .prev-btn {
@@ -471,7 +497,7 @@
             font-size: 2.5rem;
             color: var(--text-dark);
             font-weight: 400;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         
         .section-subtitle {
@@ -594,20 +620,22 @@
         .newsletter-section {
             background: var(--highlight-bg);
             color: var(--text-light);
-            padding: 60px 0;
+            padding: 30px 0;
         }
 
         .newsletter-content {
             display: flex;
             align-items: center;
             margin-bottom: 0;
+            justify-content: space-between;
+            justify-items: center;
         }
 
         .newsletter-title {
             font-size: 2.2rem;
             font-weight: 400;
             margin: 0 0 15px 0;
-            flex-basis: 45%;
+            /* flex-basis: 45%; */
             line-height: 1.3;
         }
         
@@ -897,7 +925,7 @@
             font-size: 2.5rem;
             font-weight: 300;
             color: #333;
-            margin-bottom: 60px;
+            margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
@@ -1094,7 +1122,7 @@
                         <a class="nav-link" href="#">Development Services</a>
                     </li>
                 </ul>
-                <button class="btn btn-book ms-3">BOOK YOUR STAY</button>
+                <!-- <button class="btn btn-book ms-3">BOOK YOUR STAY</button> -->
             </div>
         </div>
     </nav>
@@ -1102,11 +1130,11 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div class="hero-content text-center text-white">
+            <!-- <div class="hero-content text-center text-white">
                 <h1 class="display-3 mb-4">Find your perfect hideaway</h1>
                 <p class="lead mb-5">Experience luxury, comfort, and unforgettable moments at our handpicked properties</p>
                 <a href="#properties" class="btn btn-outline-light btn-lg px-5 py-3">Explore Properties</a>
-            </div>
+            </div> -->
         </div>
         
         <div class="search-container">
@@ -1261,8 +1289,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center ">
-    <button class="btn btn-outline-secondary">
+            <div class="text-center mt-4">
+    <button class="btn btn-outline-secondary py-3 px-4">
         View All Properties <i class="fas fa-arrow-right"></i>
     </button>
 </div>
@@ -1285,17 +1313,21 @@
                             <div class="col-md-6">
                                 <div class="review-card">
                                     <div class="review-header">
-                                        <i class="fas fa-home review-icon"></i>
                                         <div>
+                                            <i class="fas fa-home review-icon"></i>
                                             <div class="review-title">Butterfly Cottage</div>
-                                            <div class="stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                        </div>
+                                        <div style="width: 100%;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="review-date"><i class="fas fa-calendar-alt review-icon"></i>July 27, 2025</div>
                                             </div>
-                                            <div class="review-date">July 27, 2025</div>
                                         </div>
                                     </div>
                                     <div class="review-text">
@@ -1306,17 +1338,21 @@
                             <div class="col-md-6">
                                 <div class="review-card">
                                     <div class="review-header">
-                                        <i class="fas fa-home review-icon"></i>
                                         <div>
+                                            <i class="fas fa-home review-icon"></i>
                                             <div class="review-title">The Gables</div>
-                                            <div class="stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                        </div>
+                                        <div style="width: 100%;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="review-date"><i class="fas fa-calendar-alt review-icon"></i>July 26, 2025</div>
                                             </div>
-                                            <div class="review-date">July 26, 2025</div>
                                         </div>
                                     </div>
                                     <div class="review-text">
@@ -1331,17 +1367,21 @@
                             <div class="col-md-6">
                                 <div class="review-card">
                                     <div class="review-header">
-                                        <i class="fas fa-home review-icon"></i>
                                         <div>
+                                            <i class="fas fa-home review-icon"></i>
                                             <div class="review-title">Skyline Ridge</div>
-                                            <div class="stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                        </div>
+                                        <div style="width: 100%;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="review-date"><i class="fas fa-calendar-alt review-icon"></i>July 15, 2025</div>
                                             </div>
-                                            <div class="review-date">July 15, 2025</div>
                                         </div>
                                     </div>
                                     <div class="review-text">
@@ -1352,17 +1392,20 @@
                             <div class="col-md-6">
                                 <div class="review-card">
                                     <div class="review-header">
-                                        <i class="fas fa-home review-icon"></i>
                                         <div>
+                                            <i class="fas fa-home review-icon"></i>
                                             <div class="review-title">Lotus Lodge</div>
-                                            <div class="stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                        </div>
+                                        <div style="width: 100%;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                             </div>
-                                            <div class="review-date">July 10, 2025</div>
+                                            <div class="review-date"><i class="fas fa-calendar-alt review-icon"></i>July 10, 2025</div>
                                         </div>
                                     </div>
                                     <div class="review-text">
@@ -1388,12 +1431,11 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-illustration">
-                    <img src="redcottage-symbol-be4ab466.webp" alt="">
+                    <img src="bizf5tvwmwmcn7iicmd5-600x338.jpg" alt="">
                 </div>
                 <div class="about-text">
                     <h2>Curated Homes.</h2>
-                    <h3>Exceptional Service.</h3>
-                    <h3>Brilliant Amenities.</h3>
+                    
                     <p>The Leader Since 2007 In Thoughtful, Well-Designed Home Stays Across the Northeast.</p>
                     <p>From rustic lodges to modernist escapes, explore exceptional homes with unparalleled access to the best that our region has to offer.</p>
                     <a href="#" class="learn-more">
@@ -1407,7 +1449,7 @@
      <!-- Design Section -->
    <section class="attraction-section">
         <div class="container">
-            <h2 class="section-title">Discover Your Next Escape</h2>
+            <h2 class="section-title py-4">Discover Your Next Escape</h2>
             
             <div class="row g-4">
                 <!-- Hot Tub Getaways -->
@@ -1464,8 +1506,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center ">
-    <button class="btn btn-outline-secondary">
+            <div class="text-center mt-3">
+    <button class="btn btn-outline-secondary py-3 px-4">
         View All Attractions <i class="fas fa-arrow-right"></i>
     </button>
 </div>
@@ -1526,7 +1568,7 @@
                     </ul>
                 </div>
                 
-                <!-- <div class="footer-section">
+                <div class="footer-section">
                     <h4>Our Properties</h4>
                     <ul>
                         <li><a href="#">Knickerbocker Knoll</a></li>
@@ -1534,8 +1576,9 @@
                         <li><a href="#">Endless Meadow House</a></li>
                         <li><a href="#">Little Rock Cabin</a></li>
                         <li><a href="#">Lotus Lodge</a></li>
+                        <li><a href="#" style="text-decoration: underline;">View All <i class="fas fa-arrow-right"></i></a></li>
                     </ul>
-                </div> -->
+                </div>
             </div>
             
             <div class="footer-bottom">
