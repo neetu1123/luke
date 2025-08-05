@@ -91,6 +91,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             max-width: 800px;
             bottom: -30px;
+            transform: translateX();
             width: 90%;
             z-index: 3;
         }
@@ -151,65 +152,10 @@
             font-weight: 500;
         }
 
-        /* Design Section */
-        .design-section {
-            padding: 80px 0;
-            /* background-color: var(--red-cottage-beige); */
-        }
 
-        .design-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--red-cottage-dark);
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
+       
 
-        .design-card {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            height: 300px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .design-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .design-card-img {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .catskills-bg {
-            background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
-        }
-
-        .hudson-bg {
-            background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
-        }
-
-        .berkshires-bg {
-            background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
-        }
-
-        .design-card-content {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            color: white;
-        }
-
-        .design-card h3 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-
+       
         /* Reviews Section */
         .reviews-section {
             padding: 80px 0;
@@ -224,18 +170,50 @@
             font-weight: 300;
         }
 
+        .reviews-slider-container {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 60px;
+        }
+        
+        .reviews-slider {
+            width: 100%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .reviews-slide {
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            transition: opacity 0.5s ease;
+            left: 0;
+            top: 0;
+        }
+        
+        .reviews-slide.active {
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+        }
+
         .review-card {
-            background: var(--red-cottage-light);
+            /* background: white; */
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 10px;
             margin: 20px;
             min-height: 300px;
+            /* box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
+
 
         .review-header {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .review-icon {
@@ -264,6 +242,77 @@
         .review-text {
             line-height: 1.8;
             color: #555;
+            font-style: italic;
+        }
+        
+        .reviews-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        
+        .review-nav-btn {
+            background: none;
+            border: none;
+            /* color: var(--red-cottage-dark); */
+            width: 40px;
+            height: 40px;
+            /* border-radius: 50%; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 15px;
+            /* box-shadow: 0 3px 10px rgba(0,0,0,0.05); */
+        }
+        
+
+
+        /* .review-nav-btn:hover {
+            background: var(--red-cottage-red);
+            color: white;
+            transform: translateY(-2px);
+        } */
+        .prev-btn {
+            position: absolute;
+            left: -2%;
+            top: 50%;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        .next-btn {
+            position: absolute;
+            right: -2%;
+            top: 50%;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .reviews-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .review-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d1d1d1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .review-dot.active {
+            background: var(--red-cottage-red);
+            width: 12px;
+            height: 12px;
         }
 
         /* About Section */
@@ -330,7 +379,7 @@
         /* Properties Section */
         .properties-section {
             padding: 80px 0;
-            background: white;
+            /* background: white; */
         }
 
         .section-header {
@@ -359,7 +408,7 @@
             background: var(--red-cottage-light);
             border-radius: 15px;
             overflow: hidden;
-            margin-bottom: 30px;
+            /* margin-bottom: 30px; */
             transition: transform 0.3s ease;
         }
 
@@ -368,7 +417,7 @@
         }
 
         .property-image {
-            height: 200px;
+            height: 300px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -423,6 +472,7 @@
             gap: 20px;
             color: #666;
             font-size: 0.9rem;
+            justify-content: space-between;
         }
 
         .property-detail {
@@ -433,55 +483,97 @@
 
         /* Newsletter Section */
         .newsletter-section {
-            background: black;
+            background: #222;
             color: white;
             padding: 80px 0;
         }
 
         .newsletter-content {
-            /* text-align: center; */
-            margin-bottom: 50px;
-            /* display: flex; */
-            display: flex
-;
-        justify-content: space-evenly;
-          align-items: center;
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            margin-bottom: 0;
         }
 
         .newsletter-title {
             font-size: 2.5rem;
-            margin-bottom: 20px;
             font-weight: 300;
-        
+            margin: 0;
+            flex-basis: 45%;
         }
 
         .newsletter-form {
-            max-width: 500px;
-            /* margin: 0 auto; */
+            flex-basis: 50%;
+            width: 100%;
+        }
+
+        .input-button-wrapper {
             display: flex;
-            gap: 15px;
+            width: 100%;
+            position: relative;
         }
 
         .newsletter-input {
             flex: 1;
-            padding: 15px 20px;
+            width: 100%;
+            padding: 18px 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 4px 0 0 4px;
             font-size: 16px;
+            background: #fff;
+            color: #333;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(139, 38, 53, 0.3);
         }
 
         .newsletter-btn {
             background: var(--red-cottage-red);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 18px 30px;
+            border-radius: 0 4px 4px 0;
             font-weight: 600;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .newsletter-btn:hover {
             background: #6d1e2a;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .newsletter-title {
+                margin-bottom: 30px;
+                flex-basis: auto;
+            }
+            
+            .newsletter-form {
+                width: 100%;
+                max-width: 100%;
+                flex-basis: auto;
+            }
+            
+            .input-button-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+                width: 100%;
+            }
         }
 
         /* Footer */
@@ -610,6 +702,170 @@
                 gap: 20px;
             }
         }
+      /* attraction section  */
+         .attraction-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .attraction-card {
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .attraction-card:hover .card-background {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        .attraction-card:hover .card-overlay {
+            background: rgba(168, 41, 41, 0.5);
+        }
+.design-card-content {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: white;
+        }
+
+        .design-card h3 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+       .attraction-card:hover .design-card h3{
+            opacity: 0;
+            
+        }
+        .card-content {
+            position: absolute;
+            bottom: 20%;
+            left:10%;
+            right: 0;
+            padding: 40px 30px;
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .attraction-card:hover .card-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .explore-btn:hover {
+            background: white;
+            color: #333;
+            transform: translateX(5px);
+        }
+
+        .explore-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .explore-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Card specific backgrounds */
+        .hot-tub-card .card-background {
+            background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
+        }
+
+     
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40p
+            }
+            
+            .attraction-card {
+                height: 300px;
+                margin-bottom: 20px;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .card-content {
+                padding: 30px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -657,15 +913,15 @@
             <form class="search-form">
                 <div class="form-group">
                     <!-- <label class="form-label">Location (Optional)</label> -->
-                    <input type="text" class="form-control" placeholder="Location (Optional)">
+                    <input type="text" class="form-control" placeholder="Location (Optional)" style="background-color: #c5bdbd;">
                 </div>
                 <div class="form-group">
                     <!-- <label class="form-label">Dates</label> -->
-                    <input type="text" class="form-control" placeholder="Add dates">
+                    <input type="text" class="form-control" placeholder="Add dates" style="background-color: #c5bdbd;">
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <!-- <label class="form-label">Guests</label> -->
-                    <select class="form-control">
+                    <select class="form-control" style="background-color: #c5bdbd;">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -681,85 +937,246 @@
         </div>
     </section>
 
-    <!-- Design Section -->
-    <section class="design-section">
+
+     <!-- Properties Section -->
+    <section class="properties-section">
         <div class="container">
-            <h2 class="design-title">Thoughtful Design Across The Northeast</h2>
+            <div class="section-header d-flex justify-content-between align-items-center">
+                <h2 class="section-title">Most Booked</h2>
+                <a href="#" class="browse-all">
+                    BROWSE ALL PROPERTIES <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="design-card">
-                        <div class="design-card-img catskills-bg"></div>
-                        <div class="design-card-content">
-                            <h3>Catskills</h3>
+               <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="property-card">
+                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg')">
+                            <div class="property-rating">★5</div>
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Knickerbocker Knoll</h3>
+                            <p class="property-description">Modern & Stylish Woodland Escape with Hot Tub and Treetop Views</p>
+                            <p class="property-price">Starting at $278 / night</p>
+                            <div class="property-details">
+                                <div class="property-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Livingston Manor / Southern Catskills</span>
+                                </div>
+                                <!-- <div class="property-detail">
+                                    <i class="fas fa-home"></i>
+                                    <span>House</span>
+                                </div> -->
+                            </div>
+                            <div class="property-details mt-2" style="border-top: 1px solid #ccc;">
+                                <div class="property-detail pt-2">
+                                    <i class="fas fa-users"></i>
+                                    <span>6</span>
+                                </div>
+                                <div class="property-detail">
+                                    <i class="fas fa-bed"></i>
+                                    <span>3</span>
+                                </div>
+                                <div class="property-detail">
+                                    <i class="fas fa-bath"></i>
+                                    <span>2</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="design-card">
-                        <div class="design-card-img hudson-bg"></div>
-                        <div class="design-card-content">
-                            <h3>Hudson Valley</h3>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="property-card">
+                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg')">
+                            <div class="property-rating">★5</div>
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Knickerbocker Knoll</h3>
+                            <p class="property-description">Modern & Stylish Woodland Escape with Hot Tub and Treetop Views</p>
+                            <p class="property-price">Starting at $278 / night</p>
+                            <div class="property-details">
+                                <div class="property-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Livingston Manor / Southern Catskills</span>
+                                </div>
+                                <!-- <div class="property-detail">
+                                    <i class="fas fa-home"></i>
+                                    <span>House</span>
+                                </div> -->
+                            </div>
+                            <div class="property-details mt-2" style="border-top: 1px solid #ccc;">
+                                <div class="property-detail pt-2">
+                                    <i class="fas fa-users"></i>
+                                    <span>6</span>
+                                </div>
+                                <div class="property-detail">
+                                    <i class="fas fa-bed"></i>
+                                    <span>3</span>
+                                </div>
+                                <div class="property-detail">
+                                    <i class="fas fa-bath"></i>
+                                    <span>2</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="design-card">
-                        <div class="design-card-img berkshires-bg"></div>
-                        <div class="design-card-content">
-                            <h3>Berkshires & Connecticut</h3>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="property-card">
+                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg');">
+                            <div class="property-badge new">NEW</div>
+                            <div class="property-rating">★5</div>
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Red Hill House</h3>
+                            <p class="property-description">Classic Farmhouse Charm with Gym, Music Den & Natural Views</p>
+                            <p class="property-price">Starting at $229 / night</p>
+                            <div class="property-details">
+                                <div class="property-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Callicoon / Livingston Manor / Southern Catskills</span>
+                                </div>
+                                <!-- <div class="property-detail">
+                                    <i class="fas fa-home"></i>
+                                    <span>House</span>
+                                </div> -->
+                            </div>
+                            <div class="property-details mt-2" style="border-top: 1px solid #ccc;">
+                                <div class="property-detail pt-2   ">
+                                    <i class="fas fa-users"></i>
+                                    <span>6</span>
+                                </div>
+                                <div class="property-detail">
+                                    <i class="fas fa-bed"></i>
+                                    <span>3</span>
+                                </div>
+                                <div class="property-detail">
+                                    <i class="fas fa-bath"></i>
+                                    <span>1.5</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="text-center ">
+    <button class="btn btn-outline-secondary">
+        View All Properties <i class="fas fa-arrow-right"></i>
+    </button>
+</div>
         </div>
     </section>
+
+  
 
     <!-- Reviews Section -->
     <section class="reviews-section">
         <div class="container">
             <h2 class="reviews-title">What Our Guests Are Saying</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="review-card">
-                        <!-- <span><i class="fas fa-chevron-left"></i></span> -->
-                        <div class="review-header">
-                            <i class="fas fa-home review-icon"></i>
-                            <div>
-                                <div class="review-title">Butterfly Cottage</div>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+            <div class="reviews-slider-container position-relative">
+                <div class="reviews-slider">
+                    <button class="review-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="reviews-slide active">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <i class="fas fa-home review-icon"></i>
+                                        <div>
+                                            <div class="review-title">Butterfly Cottage</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-date">July 27, 2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        Awesome I would definitely recommend for someone else. It was peaceful and quit. It was everything we needed
+                                    </div>
                                 </div>
-                                <div class="review-date">July 27, 2025</div>
                             </div>
-                        </div>
-                        <div class="review-text">
-                            Awesome I would definitely recommend for someone else. It was peaceful and quit. It was everything we needed
+                            <div class="col-md-6">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <i class="fas fa-home review-icon"></i>
+                                        <div>
+                                            <div class="review-title">The Gables</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-date">July 26, 2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        We had a great stay at The Gables house in Callicoon. The house was clean and organized, some parts of the house were even nicer than the photos, the beds were comfy, and the house clean and spacious. The kitchen may be the most well-stocked we have seen in terms of lots of pots/pans, knives that actually cut, large bowls, dishes, gadgets, cookies utensils, etc.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <i class="fas fa-home review-icon"></i>
-                            <div>
-                                <div class="review-title">The Gables</div>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                    <div class="reviews-slide">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <i class="fas fa-home review-icon"></i>
+                                        <div>
+                                            <div class="review-title">Skyline Ridge</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-date">July 15, 2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        This place exceeded all our expectations. The views were breathtaking and the amenities were top-notch. We especially enjoyed the fireplace during the cool evening hours. Will definitely be back!
+                                    </div>
                                 </div>
-                                <div class="review-date">July 26, 2025</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <i class="fas fa-home review-icon"></i>
+                                        <div>
+                                            <div class="review-title">Lotus Lodge</div>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-date">July 10, 2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        Perfect weekend getaway! The kitchen was fully equipped for our cooking needs and the hot tub was divine after a day of hiking. The property manager was very responsive to our questions. Highly recommend!
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="review-text">
-                            We had a great stay at The Gables house in Callicoon. The house was clean and organized, some parts of the house were even nicer than the photos, the beds were comfy, and the house clean and spacious. The kitchen may be the most well-stocked we have seen in terms of lots of pots/pans, knives that actually cut, large bowls, dishes, gadgets, cookies utensils, etc. Luke was very responsive and informative. Do note the listing says there is A/C in every bedroom, but there were a few rooms without a window unit. However there were *tons* of fans throughout the house that really help. It was also great to be able to walk into town.
-                        </div>
+                    </div>
+                    <button class="review-nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+
+                </div>
+                <div class="reviews-navigation">
+                    <div class="reviews-dots">
+                        <span class="review-dot active" data-index="0"></span>
+                        <span class="review-dot" data-index="1"></span>
                     </div>
                 </div>
             </div>
@@ -787,165 +1204,71 @@
         </div>
     </section>
 
-    <!-- Properties Section -->
-    <section class="properties-section">
+     <!-- Design Section -->
+   <section class="attraction-section">
         <div class="container">
-            <div class="section-header d-flex justify-content-between align-items-center">
-                <h2 class="section-title">Most Booked</h2>
-                <a href="#" class="browse-all">
-                    BROWSE ALL PROPERTIES <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="property-card">
-                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg')">
-                            <div class="property-rating">★5</div>
+            <h2 class="section-title">Discover Your Next Escape</h2>
+            
+            <div class="row g-4">
+                <!-- Hot Tub Getaways -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="attraction-card hot-tub-card" data-aos="fade-up">
+                        <div class="card-background"></div>
+                        <div class="design-card-content">
+                            <h3>Catskills</h3>
                         </div>
-                        <div class="property-content">
-                            <h3 class="property-title">Lilac Hill</h3>
-                            <p class="property-description">Private, Designer Home with Stunning Views!</p>
-                            <p class="property-price">Starting at $294 / night</p>
-                            <div class="property-details">
-                                <div class="property-detail">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Callicoon / Livingston Manor / Southern Catskills</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div>
-                            </div>
-                            <div class="property-details mt-2">
-                                <div class="property-detail">
-                                    <i class="fas fa-users"></i>
-                                    <span>8</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bed"></i>
-                                    <span>4</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bath"></i>
-                                    <span>3</span>
-                                </div>
-                            </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Hot Tub Getaways</h3>
+                            <p class="card-subtitle">Immerse Yourself In Warm Relaxation</p>
+                            <button class="explore-btn">
+                                Explore <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="property-card">
-                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg')">
-                            <div class="property-rating">★5</div>
+
+                <!-- Family Friendly -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-background"></div>
+                         <div class="design-card-content">
+                            <h3>Catskills</h3>
                         </div>
-                        <div class="property-content">
-                            <h3 class="property-title">Knickerbocker Knoll</h3>
-                            <p class="property-description">Modern & Stylish Woodland Escape with Hot Tub and Treetop Views</p>
-                            <p class="property-price">Starting at $278 / night</p>
-                            <div class="property-details">
-                                <div class="property-detail">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Livingston Manor / Southern Catskills</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div>
-                            </div>
-                            <div class="property-details mt-2">
-                                <div class="property-detail">
-                                    <i class="fas fa-users"></i>
-                                    <span>6</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bed"></i>
-                                    <span>3</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bath"></i>
-                                    <span>2</span>
-                                </div>
-                            </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Family Friendly</h3>
+                            <p class="card-subtitle">Create Memories That Last Forever</p>
+                            <button class="explore-btn">
+                                Explore <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="property-card">
-                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg');">
-                            <div class="property-badge new">NEW</div>
-                            <div class="property-rating">★5</div>
+
+                <!-- Poolside Retreats -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-background"></div>
+                         <div class="design-card-content">
+                            <h3>Catskills</h3>
                         </div>
-                        <div class="property-content">
-                            <h3 class="property-title">Red Hill House</h3>
-                            <p class="property-description">Classic Farmhouse Charm with Gym, Music Den & Natural Views</p>
-                            <p class="property-price">Starting at $229 / night</p>
-                            <div class="property-details">
-                                <div class="property-detail">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Callicoon / Livingston Manor / Southern Catskills</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div>
-                            </div>
-                            <div class="property-details mt-2">
-                                <div class="property-detail">
-                                    <i class="fas fa-users"></i>
-                                    <span>6</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bed"></i>
-                                    <span>3</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bath"></i>
-                                    <span>1.5</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="property-card">
-                        <div class="property-image" style="background: url('j2a6zkzcxvc9tksgi95i-600x338.jpg');">
-                            <div class="property-rating">★5</div>
-                        </div>
-                        <div class="property-content">
-                            <h3 class="property-title">Skyline Ridge</h3>
-                            <p class="property-description">Modern Hudson Valley Escape with Pool, Hot Tub, Sauna, Gym & Sweeping River Views</p>
-                            <p class="property-price">Starting at $1,200 / night</p>
-                            <div class="property-details">
-                                <div class="property-detail">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Hudson / Hudson Valley</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div>
-                            </div>
-                            <div class="property-details mt-2">
-                                <div class="property-detail">
-                                    <i class="fas fa-users"></i>
-                                    <span>8</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bed"></i>
-                                    <span>4</span>
-                                </div>
-                                <div class="property-detail">
-                                    <i class="fas fa-bath"></i>
-                                    <span>4.5</span>
-                                </div>
-                            </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Poolside Retreats</h3>
+                            <p class="card-subtitle">Dive Into Ultimate Relaxation</p>
+                            <button class="explore-btn">
+                                Explore <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="text-center ">
+    <button class="btn btn-outline-secondary">
+        View All Attractions <i class="fas fa-arrow-right"></i>
+    </button>
+</div>
         </div>
     </section>
 
@@ -955,8 +1278,10 @@
             <div class="newsletter-content">
                 <h2 class="newsletter-title">Get exclusive updates.<br>Sign up now!</h2>
                 <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Email address" required>
-                    <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+                    <div class="input-button-wrapper">
+                        <input type="email" class="newsletter-input" placeholder="Email address" required>
+                        <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -1043,30 +1368,67 @@
             });
         });
 
-        // Add hover effects to property cards
-        document.querySelectorAll('.property-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-                this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+       
+        
+        // Reviews carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the review slider
+            const slides = document.querySelectorAll('.reviews-slide');
+            const dots = document.querySelectorAll('.review-dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            
+            // Function to show specific slide
+            function showSlide(slideIndex) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Hide all active dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Show the current slide and dot
+                slides[slideIndex].classList.add('active');
+                dots[slideIndex].classList.add('active');
+                
+                currentSlide = slideIndex;
+            }
+            
+            // Event listeners for navigation buttons
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) newIndex = totalSlides - 1;
+                    showSlide(newIndex);
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= totalSlides) newIndex = 0;
+                    showSlide(newIndex);
+                });
+            }
+            
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                });
             });
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Add hover effects to design cards
-        document.querySelectorAll('.design-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px)';
-                this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            });
+            // Automatic slide change
+            setInterval(function() {
+                let newIndex = currentSlide + 1;
+                if (newIndex >= totalSlides) newIndex = 0;
+                showSlide(newIndex);
+            }, 8000); // Change slide every 8 seconds
         });
 
         // Newsletter form submission
@@ -1084,7 +1446,7 @@
         });
 
         // Chat button functionality
-        document.querySelector('.chat-button').addEventListener('click', function() {
+        document.querySelector('.chat-button')?.addEventListener('click', function() {
             alert('Chat support would open here!');
         });
 
@@ -1114,6 +1476,63 @@
         // Make the first section visible immediately
         document.querySelector('.hero-section').style.opacity = '1';
         document.querySelector('.hero-section').style.transform = 'translateY(0)';
+    </script>
+   
+ <script>
+        // Add smooth hover effects and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.attraction-card');
+            
+            cards.forEach(card => {
+                // Add mouse enter effect
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                // Add mouse leave effect
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+                
+                // Add click effect for explore button
+                const exploreBtn = card.querySelector('.explore-btn');
+                exploreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Add a click animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                    
+                    // You can add navigation logic here
+                    console.log('Exploring:', card.querySelector('.card-title').textContent);
+                });
+            });
+            
+            // Add intersection observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Initially hide cards for scroll animation
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+                observer.observe(card);
+            });
+        });
     </script>
 </body>
 </html>
