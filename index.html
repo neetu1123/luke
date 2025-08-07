@@ -64,7 +64,7 @@
 
         /* Navigation */
         .navbar {
-            background-color: var(--text-dark);
+            background-color: var(--highlight-bg);
             padding: 1rem 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
@@ -1013,17 +1013,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            /* background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp'); */
-            background-position: center;
+            z-index: 1;
+        }
+        
+        .card-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.5s ease;
             filter: grayscale(30%); /* Apply grayscale filter for theme consistency */
-            z-index: 1;
         }
         /* .hot-tub-card .card-background {
             background: url('WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg');
         } */
-        .attraction-card:hover .card-background {
+        .attraction-card:hover .card-background img {
             transform: scale(1.05);
             filter: grayscale(0%);
         }
@@ -1049,7 +1052,7 @@
             color: white;
             transition: opacity 0.4s ease;
             z-index: 5;
-            /* background-color: rgba(0, 0, 0, 0.6); */
+            /* background-color: rgba(0, 0, 0, 0.5); */
             padding: 12px 20px;
             border-radius: 8px;
             /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); */
@@ -1166,7 +1169,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="cropped-Bentonville (2).avif" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="WhatsApp Image 2025-08-07 at 7.38.16 PM.jpeg" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -1521,7 +1524,9 @@
                 <!-- Hot Tub Getaways -->
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up">
-                        <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg" alt=""></div>
+                        <div class="card-background">
+                            <img src="WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg" alt="Eat & Drink in Bentonville">
+                        </div>
                         <div class="card-overlay"></div>
                         <div class="design-card-content">
                             <h3>Eat & Drink</h3>
@@ -1539,7 +1544,9 @@
                 <!-- Family Friendly -->
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg" alt=""></div>
+                        <div class="card-background">
+                            <img src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg" alt="Local Events & Attractions">
+                        </div>
                         <div class="card-overlay"></div>
                         <div class="design-card-content">
                             <h3>Local Events & Attractions</h3>
@@ -1557,7 +1564,9 @@
                 <!-- Poolside Retreats -->
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.03.17 PM.jpeg" alt=""></div>
+                        <div class="card-background">
+                            <img src="WhatsApp Image 2025-08-07 at 8.03.17 PM.jpeg" alt="Outdoor Adventures">
+                        </div>
                         <div class="card-overlay"></div>
                         <div class="design-card-content">
                             <h3>Outdoor Adventures</h3>
