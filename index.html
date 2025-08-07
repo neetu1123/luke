@@ -47,6 +47,14 @@
             font-weight: 500;
         }
         
+        .heading {
+              font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+              font-weight: 600;
+              font-size: 1.5rem;
+              line-height: 1.2;
+              color: var(--text-dark);
+            }
+
         .container {
             max-width: 1500px;
             margin: 0 auto;
@@ -55,7 +63,7 @@
 
         /* Navigation */
         .navbar {
-            background-color: var(--text-light);
+            background-color: var(--text-dark);
             padding: 1rem 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
@@ -67,9 +75,15 @@
             font-size: 1.6rem;
             letter-spacing: 2px;
         }
+        
+        .navbar-brand img {
+            /* filter: brightness(0) invert(1); Makes the logo white (transparent with white color) */
+            max-height: 50px;
+            transition: all 0.3s ease;
+        }
 
         .navbar-nav .nav-link {
-            color: var(--text-dark) !important;
+            color: var(--text-light) !important;
             font-weight: 500;
             margin: 0 6px;
             transition: all 0.3s ease;
@@ -119,7 +133,7 @@
         .hero-section {
             position: relative;
             height: 80vh;
-            background: url('wc7nngzpezcayxfg7xb0.jpg');
+            background: url('WhatsApp Image 2025-08-07 at 7.38.40 PM.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -427,6 +441,9 @@
         .about-illustration {
             flex: 1;
             text-align: center;
+            /* border-radius: 500px; */
+            /* height: 70%; */
+            /* width: 50%; */
         }
 
         .cottage-svg {
@@ -957,12 +974,14 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp');
+            /* background: url('clay-banks-2flbLB0-2f0-unsplash-1-1-922a1f0c.webp'); */
             background-position: center;
             transition: transform 0.5s ease;
             filter: grayscale(30%); /* Apply grayscale filter for theme consistency */
         }
-
+        /* .hot-tub-card .card-background {
+            background: url('WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg');
+        } */
         .attraction-card:hover .card-background {
             transform: scale(1.05);
             filter: grayscale(0%);
@@ -1097,7 +1116,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Luke</a>
+            <a class="navbar-brand" href="#"><img src="WhatsApp Image 2025-08-07 at 7.38.16 PM.jpeg" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -1184,11 +1203,11 @@
             <div class="row">
                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
-                        <div class="property-image" style="background: url('bizf5tvwmwmcn7iicmd5-600x338.jpg')">
+                        <div class="property-image" style="background: url('WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg')">
                             <!-- <div class="property-rating">★5</div> -->
                         </div>
                         <div class="property-content">
-                            <h3 class="property-title">Knickerbocker Knoll</h3>
+                            <h3 class="property-title">The Guesthouse</h3>
                             <p class="property-description">Modern & Stylish Woodland Escape with Hot Tub and Treetop Views</p>
                             <p class="property-price">Starting at $278 / night</p>
                             <div class="property-details">
@@ -1221,11 +1240,11 @@
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
-                        <div class="property-image" style="background: url('bizf5tvwmwmcn7iicmd5-600x338.jpg')">
+                        <div class="property-image" style="background: url('WhatsApp Image 2025-08-07 at 7.40.39 PM.jpeg')">
                             <!-- <div class="property-rating">★5</div> -->
                         </div>
                         <div class="property-content">
-                            <h3 class="property-title">Knickerbocker Knoll</h3>
+                            <h3 class="property-title">Eclectic Retreat</h3>
                             <p class="property-description">Modern & Stylish Woodland Escape with Hot Tub and Treetop Views</p>
                             <p class="property-price">Starting at $278 / night</p>
                             <div class="property-details">
@@ -1258,12 +1277,12 @@
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
-                        <div class="property-image" style="background: url('bizf5tvwmwmcn7iicmd5-600x338.jpg');">
+                        <div class="property-image" style="background: url('WhatsApp Image 2025-08-07 at 7.41.30 PM.jpeg');">
                             <!-- <div class="property-badge new">NEW</div>
                             <div class="property-rating">★5</div> -->
                         </div>
                         <div class="property-content">
-                            <h3 class="property-title">Red Hill House</h3>
+                            <h3 class="property-title">7th St. Trailhead</h3>
                             <p class="property-description">Classic Farmhouse Charm with Gym, Music Den & Natural Views</p>
                             <p class="property-price">Starting at $229 / night</p>
                             <div class="property-details">
@@ -1436,15 +1455,15 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-illustration">
-                    <img src="bizf5tvwmwmcn7iicmd5-600x338.jpg" alt="">
+                    <img src="WhatsApp Image 2025-08-07 at 7.49.01 PM.jpeg" alt="" class="img-fluid" style="height: 450px; border-radius: 15px;">
                 </div>
                 <div class="about-text">
-                    <h2>Curated Homes.</h2>
-                    
-                    <p>The Leader Since 2007 In Thoughtful, Well-Designed Home Stays Across the Northeast.</p>
-                    <p>From rustic lodges to modernist escapes, explore exceptional homes with unparalleled access to the best that our region has to offer.</p>
+                    <h2 class=""> Find your Perfect Stay</h2>
+
+                    <p>Where you stay matters; enjoy our hand-picked selection of places to stay in and around Bentonville, AR, </p>
+                    <p>that gives you access to world-class Mountain Biking, incredible dining, small-town charm, and more! From luxury to affordability find your base camp in Northwest Arkansas today!</p>
                     <a href="#" class="learn-more">
-                        LEARN MORE <i class="fas fa-arrow-right"></i>
+                        View Featured Properties <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -1454,20 +1473,20 @@
      <!-- Design Section -->
    <section class="attraction-section">
         <div class="container">
-            <h2 class="section-title py-4">Discover Your Next Escape</h2>
+            <h2 class="section-title py-4">Explore the Best of Bentonville</h2>
             
             <div class="row g-4">
                 <!-- Hot Tub Getaways -->
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up">
-                        <div class="card-background"></div>
+                        <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg" alt=""></div>
                         <div class="design-card-content">
-                            <h3>Catskills</h3>
+                            <h3>Eat & Drink</h3>
                         </div>
                         <div class="card-overlay"></div>
                         <div class="card-content">
-                            <h3 class="card-title">Hot Tub Getaways</h3>
-                            <p class="card-subtitle">Immerse Yourself In Warm Relaxation</p>
+                            <h3 class="card-title">Dine & Unwind</h3>
+                            <p class="card-subtitle">Experience Bentonville’s finest bites and sips.</p>
                             <button class="explore-btn">
                                 Explore <i class="fas fa-arrow-right"></i>
                             </button>
@@ -1478,14 +1497,14 @@
                 <!-- Family Friendly -->
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-background"></div>
+                        <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg" alt=""></div>
                          <div class="design-card-content">
-                            <h3>Catskills</h3>
+                            <h3>Local Events & Attractions</h3>
                         </div>
                         <div class="card-overlay"></div>
                         <div class="card-content">
-                            <h3 class="card-title">Family Friendly</h3>
-                            <p class="card-subtitle">Create Memories That Last Forever</p>
+                            <h3 class="card-title">Happenings & Highlights</h3>
+                            <p class="card-subtitle"> Uncover events that make Bentonville shine.</p>
                             <button class="explore-btn">
                                 Explore <i class="fas fa-arrow-right"></i>
                             </button>
@@ -1496,14 +1515,14 @@
                 <!-- Poolside Retreats -->
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-background"></div>
+                        <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.03.17 PM.jpeg" alt=""></div>
                          <div class="design-card-content">
-                            <h3>Catskills</h3>
+                            <h3>Outdoor Adventures</h3>
                         </div>
                         <div class="card-overlay"></div>
                         <div class="card-content">
-                            <h3 class="card-title">Poolside Retreats</h3>
-                            <p class="card-subtitle">Dive Into Ultimate Relaxation</p>
+                            <h3 class="card-title">Adventure Awaits</h3>
+                            <p class="card-subtitle">Ride, hike, and roam through Ozark beauty.</p>
                             <button class="explore-btn">
                                 Explore <i class="fas fa-arrow-right"></i>
                             </button>
@@ -1518,6 +1537,29 @@
 </div>
         </div>
     </section>
+
+
+      <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+               
+                <div class="about-text">
+                    <h2>Bentonville Lodging Company</h2>
+                    
+                    <p>Where you stay matters; enjoy our hand-picked selection of places to stay in and around Bentonville, AR, </p>
+                    <p>that gives you access to world-class Mountain Biking, incredible dining, small-town charm, and more! From luxury to affordability find your base camp in Northwest Arkansas today!</p>
+                    <a href="#" class="learn-more">
+                        View Featured Properties <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                 <div class="about-illustration">
+                    <img src="WhatsApp Image 2025-08-07 at 7.49.01 PM.jpeg" alt="" class="img-fluid" style="height: 450px;border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
