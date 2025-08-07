@@ -8,8 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dynalight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Color Palette */
@@ -113,6 +113,16 @@
             width: 100%;
         }
 
+
+        .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex
+;
+    /* justify-items: center; */
+}
         .btn-book {
             background-color: var(--cta-button);
             color: var(--cta-text);
@@ -142,7 +152,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* filter: grayscale(100%); */
+            /* filter: grayscale(20%); */
         }
         
         .hero-section:before {
@@ -152,7 +162,42 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* background: var(--background-light); */
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            margin-bottom: 60px;
+        }
+        
+        .logo-container {
+            margin-bottom: 20px;
+        }
+        
+        .hero-logo {
+            width: 120px;
+            height: auto;
+            filter: brightness(1.2);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            margin-bottom: 0;
+        }
+        
+        .hero-subtitle {
+            font-size: 3.5rem;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-location {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: 300;
         }
 
         .search-container {
@@ -384,7 +429,7 @@
         }
         
         .review-nav-btn:hover {
-            /* background-color: rgba(255, 255, 255, 0.1); */
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
         .prev-btn {
@@ -952,6 +997,20 @@
                 flex-direction: column;
             }
             
+            .hero-title {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+            
+            .hero-subtitle {
+                font-size: 2.2rem;
+                margin-top: -5px;
+            }
+            
+            .hero-location {
+                font-size: 1rem;
+            }
+            
             .design-title, .reviews-title, .section-title, .newsletter-title {
                 font-size: 1.8rem;
             }
@@ -1167,14 +1226,14 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg py-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="cropped-Bentonville (2).avif" alt=""></a>
+            <!-- <a class="navbar-brand" href="#"><img src="cropped-Bentonville (2).avif" alt=""></a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                             Home
@@ -1207,11 +1266,14 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <!-- <div class="hero-content text-center text-white">
-                <h1 class="display-3 mb-4">Find your perfect hideaway</h1>
-                <p class="lead mb-5">Experience luxury, comfort, and unforgettable moments at our handpicked properties</p>
-                <a href="#properties" class="btn btn-outline-light btn-lg px-5 py-3">Explore Properties</a>
-            </div> -->
+            <div class="hero-content text-center text-white">
+                <div class="logo-container">
+                    <img src="WhatsApp Image 2025-08-07 at 11.18.32 PM.jpeg" alt="Bentonville Lodging Co Logo" class="hero-logo image-fluid">
+                </div>
+                <h1 class="hero-title">BENTONVILLE</h1>
+                <h2 class="hero-subtitle dynalight-regular">Lodging Company</h2>
+                <p class="hero-location">Bentonville, Arkansas</p>
+            </div>
         </div>
         
         <div class="search-container">
@@ -1250,7 +1312,7 @@
     <section class="properties-section" id="properties">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Properties</h2>
+                <h2 class="section-title">Featured Properties</h2>
                 <p class="section-subtitle">Discover our handpicked collection of luxury homes in stunning locations, all designed with your comfort and experience in mind.</p>
             </div>
             <div class="row">
@@ -1490,26 +1552,6 @@
                         <span class="review-dot active" data-index="0"></span>
                         <span class="review-dot" data-index="1"></span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-illustration">
-                    <img src="WhatsApp Image 2025-08-07 at 7.49.01 PM.jpeg" alt="" class="img-fluid" style="height: 450px; border-radius: 15px;">
-                </div>
-                <div class="about-text">
-                    <h2 class=""> Find your Perfect Stay</h2>
-
-                    <p>Where you stay matters; enjoy our hand-picked selection of places to stay in and around Bentonville, AR, </p>
-                    <p>that gives you access to world-class Mountain Biking, incredible dining, small-town charm, and more! From luxury to affordability find your base camp in Northwest Arkansas today!</p>
-                    <a href="#" class="learn-more">
-                        View Featured Properties <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
         </div>
