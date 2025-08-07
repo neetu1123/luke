@@ -80,6 +80,7 @@
         .navbar-brand img {
             /* filter: brightness(0) invert(1); Makes the logo white (transparent with white color) */
             max-height: 80px;
+            width: 95px;
             transition: all 0.3s ease;
             white-space: nowrap;
         }
@@ -459,10 +460,10 @@
         }
 
         .about-text h2 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: var(--text-dark);
             margin-bottom: 25px;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .about-text h3 {
@@ -506,6 +507,13 @@
             margin-top: 100px;
             background: var(--background-light);
         }
+        
+        /* Initial state for animation */
+        .property-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
         .section-header {
             margin-bottom: 60px;
@@ -547,25 +555,35 @@
 
         .property-card {
             background: var(--text-light);
-            border-radius: 4px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             height: 100%;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
         }
 
-        .property-card:hover {
+        /* .property-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
+        } */
 
         .property-image {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
+            height: 250px;
             position: relative;
-            /* filter: grayscale(100%); */
+            overflow: hidden;
         }
+
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        /* .property-card:hover .property-image img {
+            transform: scale(1.05);
+        } */
 
         .property-badge {
             position: absolute;
@@ -573,20 +591,26 @@
             right: 15px;
             background: var(--text-dark);
             color: var(--text-light);
-            padding: 6px 12px;
-            border-radius: 2px;
-            font-size: 0.7rem;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            z-index: 2;
         }
 
         .property-badge.new {
             background: var(--grey-dark);
         }
+        
+        .property-badge.featured {
+            background: #000;
+        }
 
         .property-content {
-            padding: 30px;
+            padding: 25px;
+            position: relative;
         }
 
         .property-rating {
@@ -594,14 +618,14 @@
             color: var(--text-dark);
             font-weight: 600;
             background-color: var(--background-light);
-            padding: 4px 8px;
-            border-radius: 2px;
+            padding: 4px 10px;
+            border-radius: 25px;
             font-size: 0.8rem;
             margin-bottom: 15px;
         }
 
         .property-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 500;
             color: var(--text-dark);
             margin-bottom: 12px;
@@ -635,6 +659,20 @@
             align-items: center;
             gap: 8px;
         }
+        
+        .view-property-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+       
 
         /* Newsletter Section */
         .newsletter-section {
@@ -648,9 +686,9 @@
 ;
     /* align-items: center; */
     margin-bottom: 0;
-    justify-content: center;
+    justify-content: space-around;
     /* justify-items: right; */
-    gap: 35px;
+    /* gap: 115px; */
 }
 
 
@@ -980,6 +1018,7 @@
             background-position: center;
             transition: transform 0.5s ease;
             filter: grayscale(30%); /* Apply grayscale filter for theme consistency */
+            z-index: 1;
         }
         /* .hot-tub-card .card-background {
             background: url('WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg');
@@ -995,8 +1034,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             transition: background 0.3s ease;
+            z-index: 2;
         }
 
         .attraction-card:hover .card-overlay {
@@ -1008,12 +1048,18 @@
             left: 30px;
             color: white;
             transition: opacity 0.4s ease;
+            z-index: 5;
+            /* background-color: rgba(0, 0, 0, 0.6); */
+            padding: 12px 20px;
+            border-radius: 8px;
+            /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); */
         }
 
-        .design-card h3 {
+        .design-card-content h3 {
             font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 10px;
+            font-weight: 800;
+            margin-bottom: 0;
+            color: white;
         }
         
         .attraction-card:hover .design-card-content {
@@ -1029,6 +1075,7 @@
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.5s ease;
+            z-index: 5;
         }
 
         .attraction-card:hover .card-content {
@@ -1119,7 +1166,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="Bentonville (2).avif" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="cropped-Bentonville (2).avif" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -1206,8 +1253,8 @@
             <div class="row">
                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
-                        <div class="property-image" style="background: url('WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg')">
-                            <!-- <div class="property-rating">★5</div> -->
+                        <div class="property-image">
+                            <img src="WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg" alt="The Guesthouse">
                         </div>
                         <div class="property-content">
                             <h3 class="property-title">The Guesthouse</h3>
@@ -1216,35 +1263,32 @@
                             <div class="property-details">
                                 <div class="property-detail">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span>Livingston Manor / Southern Catskills</span>
+                                    <span>Bentonville, Arkansas</span>
                                 </div>
-                                <!-- <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div> -->
                             </div>
-                            <div class="property-details mt-2" style="border-top: 1px solid #ccc;">
-                                <div class="property-detail pt-2">
+                            <div class="property-details mt-3" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+                                <div class="property-detail">
                                     <i class="fas fa-users"></i>
-                                    <span>6</span>
+                                    <span>6 guests</span>
                                 </div>
                                 <div class="property-detail">
                                     <i class="fas fa-bed"></i>
-                                    <span>3</span>
+                                    <span>3 beds</span>
                                 </div>
                                 <div class="property-detail">
                                     <i class="fas fa-bath"></i>
-                                    <span>2</span>
+                                    <span>2 baths</span>
                                 </div>
                             </div>
+                            <!-- <a href="#" class="view-property-btn">View Details <i class="fas fa-arrow-right ms-1"></i></a> -->
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
-                        <div class="property-image" style="background: url('WhatsApp Image 2025-08-07 at 7.40.39 PM.jpeg')">
-                            <!-- <div class="property-rating">★5</div> -->
+                        <div class="property-image">
+                            <img src="WhatsApp Image 2025-08-07 at 7.40.39 PM.jpeg" alt="Eclectic Retreat">
                         </div>
                         <div class="property-content">
                             <h3 class="property-title">Eclectic Retreat</h3>
@@ -1253,36 +1297,32 @@
                             <div class="property-details">
                                 <div class="property-detail">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span>Livingston Manor / Southern Catskills</span>
+                                    <span>Bentonville, Arkansas</span>
                                 </div>
-                                <!-- <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div> -->
                             </div>
-                            <div class="property-details mt-2" style="border-top: 1px solid #ccc;">
-                                <div class="property-detail pt-2">
+                            <div class="property-details mt-3" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+                                <div class="property-detail">
                                     <i class="fas fa-users"></i>
-                                    <span>6</span>
+                                    <span>6 guests</span>
                                 </div>
                                 <div class="property-detail">
                                     <i class="fas fa-bed"></i>
-                                    <span>3</span>
+                                    <span>3 beds</span>
                                 </div>
                                 <div class="property-detail">
                                     <i class="fas fa-bath"></i>
-                                    <span>2</span>
+                                    <span>2 baths</span>
                                 </div>
                             </div>
+                            <!-- <a href="#" class="view-property-btn">View Details <i class="fas fa-arrow-right ms-1"></i></a> -->
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="property-card">
-                        <div class="property-image" style="background: url('WhatsApp Image 2025-08-07 at 7.41.30 PM.jpeg');">
-                            <!-- <div class="property-badge new">NEW</div>
-                            <div class="property-rating">★5</div> -->
+                        <div class="property-image">
+                            <img src="WhatsApp Image 2025-08-07 at 7.41.30 PM.jpeg" alt="7th St. Trailhead">
                         </div>
                         <div class="property-content">
                             <h3 class="property-title">7th St. Trailhead</h3>
@@ -1291,36 +1331,33 @@
                             <div class="property-details">
                                 <div class="property-detail">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span>Callicoon / Livingston Manor / Southern Catskills</span>
+                                    <span>Bentonville, Arkansas</span>
                                 </div>
-                                <!-- <div class="property-detail">
-                                    <i class="fas fa-home"></i>
-                                    <span>House</span>
-                                </div> -->
                             </div>
-                            <div class="property-details mt-2" style="border-top: 1px solid #ccc;">
-                                <div class="property-detail pt-2   ">
+                            <div class="property-details mt-3" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+                                <div class="property-detail">
                                     <i class="fas fa-users"></i>
-                                    <span>6</span>
+                                    <span>6 guests</span>
                                 </div>
                                 <div class="property-detail">
                                     <i class="fas fa-bed"></i>
-                                    <span>3</span>
+                                    <span>3 beds</span>
                                 </div>
                                 <div class="property-detail">
                                     <i class="fas fa-bath"></i>
-                                    <span>1.5</span>
+                                    <span>1.5 baths</span>
                                 </div>
                             </div>
+                            <!-- <a href="#" class="view-property-btn">View Details <i class="fas fa-arrow-right ms-1"></i></a> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-    <button class="btn btn-outline-secondary py-3 px-4">
-        View All Properties <i class="fas fa-arrow-right"></i>
-    </button>
-</div>
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-dark py-3 px-4">
+                    View All Properties <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -1416,31 +1453,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+ <div class="col-md-6">
                                 <div class="review-card">
                                     <div class="review-header">
                                         <div>
                                             <i class="fas fa-home review-icon"></i>
-                                            <div class="review-title">Lotus Lodge</div>
+                                            <div class="review-title">Skyline Ridge</div>
                                         </div>
                                         <div style="width: 100%;">
                                             <div style="display: flex; justify-content: space-between; align-items: center;">
                                                 <div class="stars">
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="review-date"><i class="fas fa-calendar-alt review-icon"></i>July 15, 2025</div>
                                             </div>
-                                            <div class="review-date"><i class="fas fa-calendar-alt review-icon"></i>July 10, 2025</div>
                                         </div>
                                     </div>
                                     <div class="review-text">
-                                        Perfect weekend getaway! The kitchen was fully equipped for our cooking needs and the hot tub was divine after a day of hiking. The property manager was very responsive to our questions.
+                                        This place exceeded all our expectations. The views were breathtaking and the amenities were top-notch. We especially enjoyed the fireplace during the cool evening hours. Will definitely be back!
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
+                          
                     </div>
                 </div>
                 <div class="reviews-navigation">
@@ -1461,7 +1500,7 @@
                     <img src="WhatsApp Image 2025-08-07 at 7.49.01 PM.jpeg" alt="" class="img-fluid" style="height: 450px; border-radius: 15px;">
                 </div>
                 <div class="about-text">
-                    <h2 class="dynalight-regular"> Find your Perfect Stay</h2>
+                    <h2 class=""> Find your Perfect Stay</h2>
 
                     <p>Where you stay matters; enjoy our hand-picked selection of places to stay in and around Bentonville, AR, </p>
                     <p>that gives you access to world-class Mountain Biking, incredible dining, small-town charm, and more! From luxury to affordability find your base camp in Northwest Arkansas today!</p>
@@ -1483,10 +1522,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up">
                         <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg" alt=""></div>
+                        <div class="card-overlay"></div>
                         <div class="design-card-content">
                             <h3>Eat & Drink</h3>
                         </div>
-                        <div class="card-overlay"></div>
                         <div class="card-content">
                             <h3 class="card-title">Dine & Unwind</h3>
                             <p class="card-subtitle">Experience Bentonville’s finest bites and sips.</p>
@@ -1501,10 +1540,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg" alt=""></div>
-                         <div class="design-card-content">
+                        <div class="card-overlay"></div>
+                        <div class="design-card-content">
                             <h3>Local Events & Attractions</h3>
                         </div>
-                        <div class="card-overlay"></div>
                         <div class="card-content">
                             <h3 class="card-title">Happenings & Highlights</h3>
                             <p class="card-subtitle"> Uncover events that make Bentonville shine.</p>
@@ -1519,10 +1558,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="attraction-card hot-tub-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-background"><img src="WhatsApp Image 2025-08-07 at 8.03.17 PM.jpeg" alt=""></div>
-                         <div class="design-card-content">
+                        <div class="card-overlay"></div>
+                        <div class="design-card-content">
                             <h3>Outdoor Adventures</h3>
                         </div>
-                        <div class="card-overlay"></div>
                         <div class="card-content">
                             <h3 class="card-title">Adventure Awaits</h3>
                             <p class="card-subtitle">Ride, hike, and roam through Ozark beauty.</p>
@@ -1548,12 +1587,13 @@
             <div class="about-content">
                
                 <div class="about-text">
+                    <div style="font-weight: bold; font-size: 1.5rem;">About Us</div>
                     <h2 class="dynalight-regular">Bentonville Lodging Company</h2>
                     
-                    <p>Where you stay matters; enjoy our hand-picked selection of places to stay in and around Bentonville, AR, </p>
-                    <p>that gives you access to world-class Mountain Biking, incredible dining, small-town charm, and more! From luxury to affordability find your base camp in Northwest Arkansas today!</p>
+                    <p>Hey! We are Luke & Sarah. We are both former Army Officers and now professional hosts who have been hosting stays since 2018 all over the country! We started with @millardscabin at Mt. Rainier National Park and continued to grow from there. Sarah is a Bentonville native so after our time in the Army it just felt right to come back to Northwest Arkansas. </p>
+                    <p>Since leaving over eight years ago, NWA has changed so much and so we thought it was time we brought a better brand of accommodations for all the new visitors! </p>
                     <a href="#" class="learn-more">
-                        View Featured Properties <i class="fas fa-arrow-right"></i>
+                         more about our amazing team <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                  <div class="about-illustration">
@@ -1584,7 +1624,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                   <img src="Bentonville (2).avif" alt="">
+                   <img src="cropped-Bentonville (2).avif" alt="">
                 </div>
                 
                 <div class="footer-section">
@@ -1653,9 +1693,45 @@
                 });
             });
         });
-
-       
         
+        // Property cards animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to property cards
+            const propertyCards = document.querySelectorAll('.property-card');
+            
+            propertyCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+                
+                // Smooth transition on view details button
+                const viewBtn = card.querySelector('.view-property-btn');
+                if (viewBtn) {
+                    viewBtn.addEventListener('mouseenter', function() {
+                        this.style.paddingLeft = '10px';
+                    });
+                    
+                    viewBtn.addEventListener('mouseleave', function() {
+                        this.style.paddingLeft = '';
+                    });
+                }
+            });
+            
+            // Add staggered reveal animation to property cards
+            setTimeout(() => {
+                propertyCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 150);
+                });
+            }, 500);
+        });
+       
         // Reviews carousel functionality with enhanced smooth transitions
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize the review slider
@@ -1744,7 +1820,7 @@
         });
 
         // Newsletter form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('.newsletter-input').value;
             alert('Thank you for subscribing! We\'ll send updates to ' + email);
@@ -1752,7 +1828,7 @@
         });
 
         // Search form submission
-        document.querySelector('.search-form').addEventListener('submit', function(e) {
+        document.querySelector('.search-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Search functionality would be implemented here!');
         });
