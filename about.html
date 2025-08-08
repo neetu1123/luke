@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Book BENTONVILLE?</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+     <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <script src="js/includes.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f6f0;
+            margin: 0;
+            padding: 0;
+        }
+
+       /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--background-light);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-illustration {
+            flex: 1;
+            text-align: center;
+            /* border-radius: 500px; */
+            /* height: 70%; */
+            /* width: 50%; */
+        }
+
+        .cottage-svg {
+            width: 300px;
+            height: 200px;
+            filter: grayscale(100%);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--grey-dark);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            color: var(--grey-dark);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .learn-more {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 5px;
+        }
+        
+        .learn-more:hover {
+            color: var(--grey-dark);
+            border-bottom: 1px solid var(--grey-dark);
+            transform: translateX(5px);
+        }
+
+        .red-cottage-section {
+            background-color: #f8f6f0;
+            padding: 20px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+        }
+
+        .benefit-card {
+            /* text-align: center; */
+            padding: 20px 15px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .star-icon {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .star-icon::before {
+            content: '☆';
+            font-size: 78px;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .benefit-card:hover .star-icon {
+            border-color: #d4a574;
+            transform: translateY(-5px);
+        }
+
+        .benefit-card:hover .star-icon::before {
+            color: #d4a574;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .benefit-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            max-width: 400px;
+            /* margin: 0 auto; */
+        }
+
+        @media (max-width: 991px) {
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 50px;
+            }
+            
+            .benefit-card {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .red-cottage-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .benefit-title {
+                font-size: 1.3rem;
+            }
+            
+            .benefit-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .benefit-card {
+                padding: 15px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+    <section class="">
+           <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+               
+                <div class="about-illustration">
+                    <img src="WhatsApp Image 2025-08-07 at 7.49.01 PM.jpeg" alt="" class="img-fluid" style="height: 450px;border-radius: 15px;">
+                </div>
+                <div class="about-text">
+                    <div style="font-weight: bold; font-size: 1.5rem;">About Us</div>
+                    <h2 class="dynalight-regular">Bentonville Lodging Company</h2>
+                    
+                    <p>Hey! We are Luke & Sarah. We are both former Army Officers and now professional hosts who have been hosting stays since 2018 all over the country! We started with @millardscabin at Mt. Rainier National Park and continued to grow from there. Sarah is a Bentonville native so after our time in the Army it just felt right to come back to Northwest Arkansas. </p>
+                    <p>Since leaving over eight years ago, NWA has changed so much and so we thought it was time we brought a better brand of accommodations for all the new visitors! </p>
+                    <a href="#" class="learn-more">
+                         more about our amazing team <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <section class="red-cottage-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Why Book BENTONVILLE?</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <div class="benefit-card">
+                        <div class="star-icon"></div>
+                        <h3 class="benefit-title">Curated Homes</h3>
+                        <p class="benefit-description">
+                            We carefully vet each and every property to make sure it is worthy of the distinction of being a BENTONVILLE home. That means comfort, cleanliness, amenities, and access
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <div class="benefit-card">
+                        <div class="star-icon"></div>
+                        <h3 class="benefit-title">Exceptional Service</h3>
+                        <p class="benefit-description">
+                            Our property managers are always available and nearby to make sure your time at BENTONVILLE is worry free. Have a question or concern during the course of your stay? We're here.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <div class="benefit-card">
+                        <div class="star-icon"></div>
+                        <h3 class="benefit-title">Brilliant Amenities</h3>
+                        <p class="benefit-description">
+                            A great home means great amenities. However you plan on unwinding, we've got the perfect house for you. That means access to LAKES, POOLS, CHEF'S KITCHENS, or just exceptional VIEWS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/includes.js"></script>
+
+    <script>
+        // Add subtle animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.benefit-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
