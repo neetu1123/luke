@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partners - Bentonville Lodging Co</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <style>
+      /* Partner Page Specific Styles */
+      .partner-hero {
+        background-color: var(--highlight-bg);
+        padding: 60px 0;
+        margin-bottom: 50px;
+        color: var(--text-light);
+        text-align: center;
+      }
+
+      .partner-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .partner-hero p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        color: var(--grey-light);
+      }
+
+      .partner-cards-section {
+        padding: 50px 0 100px;
+      }
+
+      .partner-card {
+        background-color: var(--text-light);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .partner-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .partner-card-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .partner-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .partner-card:hover .partner-card-img img {
+        transform: scale(1.05);
+      }
+
+      .partner-card-content {
+        padding: 25px;
+      }
+
+      .partner-card-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .partner-card-text {
+        color: var(--grey-dark);
+        margin-bottom: 25px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .see-more-btn {
+        background-color: var(--cta-button);
+        color: var(--text-light);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.9rem;
+      }
+
+      .see-more-btn:hover {
+        background-color: var(--primary-accent);
+        color: var(--text-light);
+      }
+
+      .coming-soon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--highlight-bg);
+        color: var(--text-light);
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        z-index: 10;
+      }
+
+      .partner-intro {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 50px;
+      }
+
+      .partner-intro p {
+        color: var(--grey-dark);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      @media (max-width: 768px) {
+        .partner-hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .partner-hero p {
+          font-size: 1rem;
+          padding: 0 15px;
+        }
+
+        .partner-card-img {
+          height: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Partner Hero Section -->
+    <section class="partner-hero">
+      <div class="container">
+        <h1>EXCLUSIVE DEALS FOR BENTONVILLE LODGING GUESTS</h1>
+        <p>
+          Our partners offer special discounts and unique experiences to enhance
+          your stay in NWA
+        </p>
+      </div>
+    </section>
+
+    <!-- Partner Content Section -->
+    <section class="container">
+      <div class="partner-intro">
+        <p>
+          A trip to NWA is not simply just about where you stay, but its about
+          making most of the incredible area. From biking the endless trails, to
+          fantastic dining, arts, culture, and more we have partnered up with
+          some fantastic businesses to bring you more value on your stay in NWA!
+        </p>
+        <p>
+          Below are our wonderful partners offering you discounts, free food
+          items, or other great deals. When you book with us you will get access
+          to a digital guide book where you can find your unique codes to
+          receive discounts and more. Additionally, this information is included
+          in every home with QR codes to easily access the deals.
+        </p>
+      </div>
+    </section>
+
+    <!-- Partner Cards Section -->
+    <section class="partner-cards-section">
+      <div class="container">
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="partner-card">
+              <div class="partner-card-img">
+                <img
+                  src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg"
+                  alt="Rise and Ride Bike Rentals"
+                />
+              </div>
+              <div class="partner-card-content">
+                <h3 class="partner-card-title">Rise and Ride Bike Rentals</h3>
+                <p class="partner-card-text">
+                  Hit the trails and save $20 with Rise and Ride E-bike rentals!
+                  Also enjoy free delivery to any of our properties in
+                  Bentonville.
+                </p>
+                <a href="#" class="see-more-btn">See More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="partner-card">
+              <div class="partner-card-img">
+                <img
+                  src="WhatsApp Image 2025-08-07 at 7.38.40 PM.jpeg"
+                  alt="Conifer"
+                />
+              </div>
+              <div class="partner-card-content">
+                <h3 class="partner-card-title">Conifer</h3>
+                <p class="partner-card-text">
+                  Staying with Bentonville Lodging Co and looking for a fine
+                  dining experience? Enjoy a free appetizer with your meal
+                  courtesy of Chef Matt Cooper at Conifer!
+                </p>
+                <a href="#" class="see-more-btn">See More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="partner-card position-relative">
+              <div class="partner-card-img">
+                <img
+                  src="WhatsApp Image 2025-08-07 at 7.41.30 PM.jpeg"
+                  alt="Executive Cleaning Co"
+                />
+              </div>
+              <div class="partner-card-content">
+                <h3 class="partner-card-title">NWA Executive Cleaning Co</h3>
+                <p class="partner-card-text">
+                  Whether a guest or owner with us, our exclusive cleaning
+                  partners at NWA Executive clean will provide you a personal
+                  residence clean at a discount!
+                </p>
+                <a href="#" class="see-more-btn">See More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="partner-card position-relative">
+              <div class="partner-card-img">
+                <img
+                  src="WhatsApp Image 2025-08-07 at 7.49.01 PM.jpeg"
+                  alt="New Partner"
+                />
+              </div>
+              <div class="partner-card-content">
+                <h3 class="partner-card-title">New Partner Coming Soon</h3>
+                <p class="partner-card-text">
+                  We're always looking to partner with more local businesses to
+                  enhance your NWA experience. Stay tuned for our next exciting
+                  partnership!
+                </p>
+                <a href="#" class="see-more-btn">See More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/includes.js"></script>
+  </body>
+</html>

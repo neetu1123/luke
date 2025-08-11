@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attractions | Bentonville Lodging Company</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--background-light);
+        margin: 0;
+        padding: 0;
+      }
+
+      .attraction-header {
+        text-align: center;
+        padding: 80px 0 30px;
+      }
+
+      .attraction-header h1 {
+        color: var(--text-dark);
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .attraction-header p {
+        color: var(--grey-dark);
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto 1.5rem;
+      }
+
+      .section-container {
+        padding: 4rem 0;
+      }
+
+      .content-card {
+        border-radius: 15px;
+        height: 100%;
+      }
+
+      .image-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+        height: 100%;
+      }
+
+      .image-container:hover {
+        transform: scale(1.02);
+      }
+
+      .main-image {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .section-title {
+        color: var(--text-dark);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+        font-family: "Playfair Display", serif;
+      }
+
+      .section-text {
+        color: var(--grey-dark);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-explore {
+        background: var(--primary-accent);
+        color: var(--text-light);
+        padding: 12px 30px;
+        border-radius: 3px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+      }
+
+      .btn-explore:hover {
+        background: var(--highlight-bg);
+        transform: translateY(-3px);
+        color: var(--text-light);
+      }
+
+      .fade-in-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in-element.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .dots-pattern {
+        position: absolute;
+        bottom: 0;
+        right: 20px;
+        z-index: 0;
+        width: 300px;
+        height: 200px;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .dots-left {
+        left: -1rem;
+      }
+
+      .dots-right {
+        right: -1rem;
+      }
+
+      @media (max-width: 991px) {
+        .section-container {
+          padding: 3rem 0;
+        }
+
+        .content-card {
+          margin-bottom: 2rem;
+        }
+
+        .main-image {
+          height: 350px;
+          margin-bottom: 2rem;
+        }
+
+        .attraction-header h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .section-container {
+          padding: 2rem 0;
+        }
+
+        .main-image {
+          height: 250px;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .section-text {
+          font-size: 1rem;
+        }
+
+        .attraction-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .attraction-header p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Attractions Header -->
+    <div class="container">
+      <div class="attraction-header">
+        <h1 class="fade-in-element">Discover Bentonville Attractions</h1>
+        <p class="fade-in-element">
+          Explore the natural beauty, cultural experiences, and outdoor
+          adventures waiting for you in Bentonville and the surrounding areas.
+          Our carefully curated selection of local attractions will enhance your
+          stay and create unforgettable memories.
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Scenic Views Section -->
+      <div class="section-container">
+        <div class="row align-items-center position-relative">
+          <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+            <div class="image-container fade-in-element">
+              <img
+                src="WhatsApp Image 2025-08-07 at 7.38.40 PM.jpeg"
+                alt="Scenic Views of Bentonville"
+                class="main-image"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="content-card fade-in-element">
+              <h2 class="section-title">Scenic Mountain Views</h2>
+              <p class="section-text">
+                Experience breathtaking panoramic views of the Ozark Mountains
+                from numerous lookout points and scenic drives. Bentonville
+                offers some of the most stunning vistas in the region, with
+                countless opportunities to pull over and take in the majestic
+                landscape.
+              </p>
+              <p class="section-text">
+                From mountain peaks to rolling valleys, the changing seasons
+                bring different but equally spectacular color palettes to these
+                vistas. Photographers will find endless inspiration while
+                outdoor enthusiasts can enjoy the many hiking trails leading to
+                scenic overlooks.
+              </p>
+              <a href="/attraction-list.html" class="btn-explore"
+                >Explore More <i class="fas fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hiking Trails Section -->
+      <div class="section-container">
+        <div class="row align-items-center position-relative">
+          <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 order-2 order-lg-1">
+            <div class="content-card fade-in-element">
+              <h2 class="section-title">Mountain Biking Trails</h2>
+              <p class="section-text">
+                Bentonville has earned the nickname "Mountain Biking Capital of
+                the World" with over 130 miles of connected trails ranging from
+                easy green paths to challenging black diamond routes. The
+                Slaughter Pen Trail system is easily accessible from downtown,
+                offering exciting options for all skill levels.
+              </p>
+              <p class="section-text">
+                The Back 40 offers more technical rides through beautiful Ozark
+                forests. Riders of all skill levels will find perfectly
+                maintained trails and stunning natural scenery throughout the
+                area. Bike rentals are available at several local shops if you
+                don't bring your own.
+              </p>
+              <a href="/attraction-list.html" class="btn-explore"
+                >Find Trails <i class="fas fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 order-1 order-lg-2">
+            <div class="image-container fade-in-element">
+              <img
+                src="WhatsApp Image 2025-08-07 at 7.41.30 PM.jpeg"
+                alt="Mountain Biking Trails in Bentonville"
+                class="main-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Local Cuisine Section -->
+      <div class="section-container">
+        <div class="row align-items-center position-relative">
+          <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+            <div class="image-container fade-in-element">
+              <img
+                src="WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg"
+                alt="Local Cuisine in Bentonville"
+                class="main-image"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="content-card fade-in-element">
+              <h2 class="section-title">Local Cuisine & Craft Beverages</h2>
+              <p class="section-text">
+                Savor the flavors of Bentonville at local restaurants, cafés,
+                and breweries. The region is known for its farm-to-table dining
+                experiences, featuring fresh ingredients from nearby farms and
+                gardens.
+              </p>
+              <p class="section-text">
+                Don't miss the thriving craft beverage scene, including
+                award-winning breweries and distilleries producing small-batch
+                spirits. Many venues offer tastings, tours, and spectacular
+                views to complement your culinary adventure in the heart of
+                Northwest Arkansas.
+              </p>
+              <a href="/attraction-list.html" class="btn-explore"
+                >Discover Local Flavors <i class="fas fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crystal Bridges Section -->
+      <div class="section-container">
+        <div class="row align-items-center position-relative">
+          <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 order-2 order-lg-1">
+            <div class="content-card fade-in-element">
+              <h2 class="section-title">Crystal Bridges Museum</h2>
+              <p class="section-text">
+                Crystal Bridges Museum of American Art is a world-class museum
+                featuring the best in American art and nestled in 120 acres of
+                Ozark landscape. Founded by philanthropist and arts patron Alice
+                Walton, this architectural marvel houses works spanning five
+                centuries of American art.
+              </p>
+              <p class="section-text">
+                The museum offers exhibitions, lectures, concerts, and classes
+                for all ages. Explore the beautiful outdoor trails featuring
+                stunning sculptures, native plants, and architectural wonders
+                that connect art with nature in a seamless experience.
+              </p>
+              <a href="/attraction-list.html" class="btn-explore"
+                >Plan Your Visit <i class="fas fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 order-1 order-lg-2">
+            <div class="image-container fade-in-element">
+              <img
+                src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg"
+                alt="Crystal Bridges Museum in Bentonville"
+                class="main-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+    </div>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for loading header and footer -->
+    <script src="js/includes.js"></script>
+
+    <!-- Animation script -->
+    <script>
+      // Animation handling
+      let observer;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add smooth scroll behavior
+        document.documentElement.style.scrollBehavior = "smooth";
+
+        // Initialize intersection observer
+        observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Apply animation to elements
+        document.querySelectorAll(".fade-in-element").forEach((el) => {
+          observer.observe(el);
+        });
+      });
+
+      // Clean up the observer when page is unloaded
+      window.addEventListener("beforeunload", function () {
+        if (observer) {
+          observer.disconnect();
+        }
+      });
+    </script>
+  </body>
+</html>

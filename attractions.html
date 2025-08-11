@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eat & Drink | Local Events & Attractions</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <style>
+      .hero-banner {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("WhatsApp Image 2025-08-07 at 7.38.40 PM.jpeg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .hero-text {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .card-category {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 400px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-category:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .card-category:hover .card-img {
+        transform: scale(1.1);
+      }
+
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.3) 60%,
+          rgba(0, 0, 0, 0.1) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+        color: white;
+      }
+
+      .card-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+
+      .card-category:hover .card-text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .btn-explore {
+        background-color: var(--cta-button);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease 0.1s;
+      }
+
+      .card-category:hover .btn-explore {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .btn-explore:hover {
+        background-color: var(--primary-accent);
+        color: white;
+      }
+
+      .section-heading {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: var(--grey-dark);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 991px) {
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-text {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .card-title {
+          font-size: 1.6rem;
+        }
+
+        .card-category {
+          height: 320px;
+        }
+
+        .btn-explore {
+          padding: 10px 20px;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div class="hero-content">
+        <h1 class="hero-title">Attractions</h1>
+        <p class="hero-text">
+          Discover the best local spots and experiences in Bentonville. From
+          culinary delights to exciting events, we've curated the finest
+          attractions for your stay.
+        </p>
+      </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="container">
+      <div class="section-heading">
+        <h2 class="section-title">Eat & Drink</h2>
+        <p class="section-subtitle">
+          Experience the vibrant culinary scene of Bentonville with its
+          farm-to-table restaurants, craft breweries, and charming cafés.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-category">
+            <img
+              src="WhatsApp Image 2025-08-07 at 8.03.17 PM.jpeg"
+              alt="Restaurants"
+              class="card-img"
+            />
+            <div class="card-overlay">
+              <h3 class="card-title">Restaurants</h3>
+              <p class="card-text">
+                Discover exquisite dining experiences from casual eateries to
+                upscale restaurants featuring local and international cuisine.
+              </p>
+              <a href="#" class="btn btn-explore"
+                >Explore <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-category">
+            <img
+              src="WhatsApp Image 2025-08-07 at 8.00.56 PM.jpeg"
+              alt="Cafés & Bakeries"
+              class="card-img"
+            />
+            <div class="card-overlay">
+              <h3 class="card-title">Cafés & Bakeries</h3>
+              <p class="card-text">
+                Start your day with freshly brewed coffee and delicious pastries
+                at our recommended local cafés and bakeries.
+              </p>
+              <a href="#" class="btn btn-explore"
+                >Explore <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5 mb-5">
+      <div class="section-heading">
+        <h2 class="section-title">Local Events & Attractions</h2>
+        <p class="section-subtitle">
+          Immerse yourself in Bentonville's vibrant culture with local events,
+          museums, outdoor activities, and more.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-category">
+            <img
+              src="WhatsApp Image 2025-08-07 at 8.01.50 PM.jpeg"
+              alt="Museums & Art"
+              class="card-img"
+            />
+            <div class="card-overlay">
+              <h3 class="card-title">Museums & Art</h3>
+              <p class="card-text">
+                Visit world-class museums and art galleries, including the
+                famous Crystal Bridges Museum of American Art.
+              </p>
+              <a href="#" class="btn btn-explore"
+                >Explore <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-category">
+            <img
+              src="WhatsApp Image 2025-08-07 at 7.41.30 PM.jpeg"
+              alt="Outdoor Activities"
+              class="card-img"
+            />
+            <div class="card-overlay">
+              <h3 class="card-title">Outdoor Activities</h3>
+              <p class="card-text">
+                Explore the beautiful trails and outdoor spaces perfect for
+                hiking, biking, and enjoying nature.
+              </p>
+              <a href="#" class="btn btn-explore"
+                >Explore <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for loading header and footer -->
+    <script src="js/includes.js"></script>
+  </body>
+</html>
