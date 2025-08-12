@@ -25,6 +25,272 @@
         padding: 0;
       }
 
+      .logo {
+        color: #00bcd4;
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
+
+      .main-heading {
+        color: var(--text-dark);
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .sub-heading {
+        color: var(--text-dark);
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+      }
+
+      .description {
+        color: var(--text-dark);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin-bottom: 2rem;
+      }
+
+      .form-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        max-width: 450px;
+        margin: 0 auto;
+      }
+
+      .form-title {
+        color: #2c5530;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-control {
+        border: none;
+        border-radius: 25px;
+        padding: 15px 20px;
+        background-color: #f8f9fa;
+        font-size: 1rem;
+        /* transition: all 0.3s ease; */
+      }
+
+      .form-control:focus {
+        background-color: #e3f2fd;
+        /* box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1); */
+        border: 1px solid #00bcd4;
+      }
+
+      .form-control::placeholder {
+        color: #999;
+        font-weight: 400;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .form-row .form-control {
+        flex: 1;
+      }
+
+      .select-control {
+        border: none;
+        border-radius: 25px;
+        padding: 15px 20px;
+        background-color: #f8f9fa;
+        font-size: 1rem;
+        color: #999;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23999' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        padding-right: 45px;
+      }
+
+      .select-control:focus {
+        background-color: #e3f2fd;
+        box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+        border: 1px solid #00bcd4;
+        outline: none;
+        color: #333;
+      }
+
+      .submit-btn {
+        background: linear-gradient(45deg, #424242, #2e2d2c);
+        border: none;
+        border-radius: 25px;
+        padding: 15px 30px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        width: 100%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .submit-btn:hover {
+        background: linear-gradient(45deg, #424242, #2e2d2c);
+        /* transform: translateY(-2px); */
+        /* box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3); */
+      }
+
+      /* Rental Evaluation Form Styles */
+      .rental-evaluation-section {
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0;
+        color: var(--text-dark);
+        position: relative;
+      }
+
+      .rental-evaluation-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background: rgba(0, 0, 0, 0.2); */
+        z-index: 1;
+      }
+
+      .rental-evaluation-section .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .form-card {
+        background: white;
+        border-radius: 8px;
+        padding: 2.5rem;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .form-title {
+        color: var(--highlight-bg);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .form-group {
+        flex: 1;
+      }
+
+      .form-control {
+        border: 1px solid var(--grey-light);
+        border-radius: 4px;
+        padding: 12px 15px;
+        width: 100%;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--highlight-bg);
+        box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+        outline: none;
+      }
+
+      .submit-btn {
+        background-color: var(--highlight-bg);
+        border: none;
+        border-radius: 4px;
+        padding: 15px 30px;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        width: 100%;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Submit button hover effect removed */
+
+      @media (max-width: 768px) {
+        .rental-evaluation-section {
+          padding: 60px 0;
+        }
+
+        .main-heading {
+          font-size: 2.2rem;
+        }
+
+        .sub-heading {
+          font-size: 2.5rem;
+        }
+
+        .form-card {
+          margin: 2rem 0;
+          padding: 2rem;
+        }
+
+        .form-row {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .form-group {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .main-heading {
+          font-size: 1.8rem;
+        }
+
+        .sub-heading {
+          font-size: 2rem;
+        }
+
+        .description {
+          font-size: 1rem;
+        }
+
+        .form-card {
+          padding: 1.5rem;
+          margin-top: 2.5rem;
+        }
+
+        .form-title {
+          font-size: 1.3rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .submit-btn {
+          padding: 12px 20px;
+          font-size: 0.9rem;
+        }
+      }
+
       /* Main Section Styles */
       .main-section {
         background-color: var(--background-light);
@@ -595,11 +861,567 @@
           font-size: 1.6rem;
         }
       }
+
+      .testimonials-section {
+        background-image: url("review_bg_2.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding: 70px 0px;
+        position: relative;
+        overflow: hidden;
+        color: var(--text-dark);
+        transition: background 0.3s, border 0.3s, border-radius 0.3s,
+          box-shadow 0.3s;
+        margin-top: 50px;
+        margin-bottom: 0px;
+      }
+
+      /* Apply a semi-transparent overlay to help with text readability */
+      .testimonials-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background-color: rgba(0, 0, 0, 0.7); */
+        z-index: 1;
+      }
+
+      .section-title {
+        font-size: 3.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 30px;
+        line-height: 1.2;
+        font-family: "Playfair Display", serif;
+      }
+
+      .section-title .highlight {
+        color: var(--text-dark);
+        font-weight: 700;
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-dark);
+        line-height: 1.7;
+        max-width: 800px;
+        margin: 0 auto 60px;
+      }
+
+      .testimonial-carousel {
+        padding: 20px 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .testimonial-card {
+        background: white;
+        padding: 30px 20px;
+        margin: 15px;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-radius: 15px;
+        z-index: 2;
+      }
+
+      .owner-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .owner-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(245, 245, 245, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-right: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .owner-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .owner-details h5 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin: 0;
+        font-family: "Playfair Display", serif;
+      }
+
+      .owner-role {
+        color: var(--text-dark);
+        font-size: 0.9rem;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .testimonial-text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+        font-style: italic;
+        position: relative;
+      }
+
+      .testimonial-text::before {
+        content: '"';
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        top: -20px;
+        left: -10px;
+        font-family: "Playfair Display", serif;
+      }
+
+      .star-rating {
+        display: flex;
+        gap: 5px;
+        margin-top: 15px;
+      }
+
+      .star {
+        color: #ff6b35;
+        font-size: 1rem;
+      }
+
+      .carousel-indicators {
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .carousel-indicators [data-bs-target] {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0;
+        transition: all 0.3s ease;
+        opacity: 1;
+      }
+
+      .carousel-indicators .active {
+        background: #ff6b35;
+        transform: scale(1.2);
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 44px;
+        height: 44px;
+        background: rgba(7, 7, 7, 0.15);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+        z-index: 3;
+      }
+
+      .carousel-control-prev {
+        left: -5px;
+      }
+
+      .carousel-control-next {
+        right: -5px;
+      }
+
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        background: rgba(17, 16, 16, 0.25);
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+        filter: brightness(1);
+      }
+
+      @media (max-width: 992px) {
+        .testimonial-card {
+          margin: 10px;
+        }
+
+        .carousel-control-prev {
+          left: -15px;
+        }
+
+        .carousel-control-next {
+          right: -15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .testimonial-card {
+          margin: 5px 0;
+          padding: 15px 10px;
+        }
+
+        .owner-info {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .owner-avatar {
+          width: 60px;
+          height: 60px;
+          margin-right: 15px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+          display: none;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .testimonials-section {
+          padding: 60px 0;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .section-description {
+          font-size: 1rem;
+          padding: 0 20px;
+        }
+
+        .testimonial-text {
+          font-size: 1rem;
+        }
+
+        .owner-details h5 {
+          font-size: 1.2rem;
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .slide-in {
+        animation: slideIn 1s ease;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Additional styles for the testimonial section */
+      .testimonials-container {
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+        z-index: 2;
+      }
     </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
+    <!-- form for free rental evaluation -->
+    <section class="rental-evaluation-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Content -->
+          <div class="col-lg-7 col-md-6 fade-in">
+            <div class="ps-lg-5 ps-md-3 ps-2">
+              <div
+                class="logo"
+                style="
+                  color: var(--grey-dark);
+                  font-size: 1.2rem;
+                  text-transform: uppercase;
+                  letter-spacing: 2px;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Property Management
+              </div>
+              <h1
+                class="main-heading"
+                style="
+                  color: var(--text-dark);
+                  font-size: 3rem;
+                  font-weight: 500;
+                  line-height: 1.2;
+                  margin-bottom: 1rem;
+                "
+              >
+                Maximize Your Bentonville
+              </h1>
+              <h2
+                class="sub-heading"
+                style="
+                  color: var(--text-dark);
+                  font-size: 3.5rem;
+                  font-weight: 700;
+                  line-height: 1.1;
+                  margin-bottom: 2rem;
+                "
+              >
+                Vacation Rental Potential
+              </h2>
+              <p
+                class="description"
+                style="
+                  color: var(--grey-dark);
+                  font-size: 1.1rem;
+                  line-height: 1.7;
+                  max-width: 600px;
+                  margin-bottom: 2rem;
+                "
+              >
+                Let our expert team handle everything for your Bentonville
+                property - from maintenance and marketing to guest experiences.
+                Enjoy peace of mind and increased profits while we take care of
+                all the details. Partner with Bentonville Lodging Company for
+                unparalleled vacation rental management services.
+              </p>
+            </div>
+          </div>
 
+          <!-- Right Form -->
+          <div class="col-lg-5 col-md-6 fade-in">
+            <div
+              class="form-card"
+              style="
+                background: white;
+                border-radius: 8px;
+                padding: 2.5rem;
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+                max-width: 100%;
+                margin: 0 auto;
+              "
+            >
+              <h3
+                class="form-title"
+                style="
+                  color: var(--highlight-bg);
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  margin-bottom: 2rem;
+                  text-align: center;
+                "
+              >
+                Free <strong>Rental Evaluation</strong>
+              </h3>
+              <form id="rentalForm">
+                <div
+                  class="form-row"
+                  style="display: flex; gap: 15px; margin-bottom: 15px"
+                >
+                  <div class="form-group" style="flex: 1">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First name"
+                      required
+                      style="
+                        border: 1px solid var(--grey-light);
+                        border-radius: 4px;
+                        padding: 12px 15px;
+                        width: 100%;
+                        font-size: 0.95rem;
+                      "
+                    />
+                  </div>
+                  <div class="form-group" style="flex: 1">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last name"
+                      required
+                      style="
+                        border: 1px solid var(--grey-light);
+                        border-radius: 4px;
+                        padding: 12px 15px;
+                        width: 100%;
+                        font-size: 0.95rem;
+                      "
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="form-row"
+                  style="display: flex; gap: 15px; margin-bottom: 15px"
+                >
+                  <div class="form-group" style="flex: 1">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      style="
+                        border: 1px solid var(--grey-light);
+                        border-radius: 4px;
+                        padding: 12px 15px;
+                        width: 100%;
+                        font-size: 0.95rem;
+                      "
+                    />
+                  </div>
+                  <div class="form-group" style="flex: 1">
+                    <input
+                      type="tel"
+                      class="form-control"
+                      placeholder="Phone"
+                      required
+                      style="
+                        border: 1px solid var(--grey-light);
+                        border-radius: 4px;
+                        padding: 12px 15px;
+                        width: 100%;
+                        font-size: 0.95rem;
+                      "
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="form-row"
+                  style="display: flex; gap: 15px; margin-bottom: 15px"
+                >
+                  <div class="form-group" style="flex: 1">
+                    <select
+                      class="form-control"
+                      required
+                      style="
+                        border: 1px solid var(--grey-light);
+                        border-radius: 4px;
+                        padding: 12px 15px;
+                        width: 100%;
+                        font-size: 0.95rem;
+                        appearance: auto;
+                      "
+                    >
+                      <option value="">Select Bedrooms</option>
+                      <option value="1">1 Bedroom</option>
+                      <option value="2">2 Bedrooms</option>
+                      <option value="3">3 Bedrooms</option>
+                      <option value="4">4 Bedrooms</option>
+                      <option value="5">5+ Bedrooms</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="flex: 1">
+                    <select
+                      class="form-control"
+                      required
+                      style="
+                        border: 1px solid var(--grey-light);
+                        border-radius: 4px;
+                        padding: 12px 15px;
+                        width: 100%;
+                        font-size: 0.95rem;
+                        appearance: auto;
+                      "
+                    >
+                      <option value="">Select Bathrooms</option>
+                      <option value="1">1 Bathroom</option>
+                      <option value="2">2 Bathrooms</option>
+                      <option value="3">3 Bathrooms</option>
+                      <option value="4">4 Bathrooms</option>
+                      <option value="5">5+ Bathrooms</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div
+                  class="form-group"
+                  style="margin-bottom: 20px; width: 100%"
+                >
+                  <select
+                    class="form-control"
+                    required
+                    style="
+                      border: 1px solid var(--grey-light);
+                      border-radius: 4px;
+                      padding: 12px 15px;
+                      width: 100%;
+                      font-size: 0.95rem;
+                      appearance: auto;
+                    "
+                  >
+                    <option value="">Select Town</option>
+                    <option value="bentonville">Bentonville</option>
+                    <option value="rogers">Rogers</option>
+                    <option value="bella-vista">Bella Vista</option>
+                    <option value="fayetteville">Fayetteville</option>
+                    <option value="springdale">Springdale</option>
+                    <option value="eureka-springs">Eureka Springs</option>
+                    <option value="beaver-lake">Beaver Lake</option>
+                    <option value="siloam-springs">Siloam Springs</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  class="submit-btn"
+                  style="
+                    border: none;
+                    border-radius: 4px;
+                    padding: 15px 30px;
+                    color: white;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    width: 100%;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                  "
+                >
+                  Learn How Much You'll Earn
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Main Hero Section -->
     <section class="main-section">
       <div class="container">
@@ -679,9 +1501,26 @@
               </div>
             </div>
           </div>
-          <div class="badges-container">
-            <img src="superhost_badge.avif" alt="Superhost Badge" />
-            <img src="download.avif" alt="Verified Host Badge" />
+          <div
+            class="badges-container"
+            style="
+              display: flex;
+              justify-content: center;
+              margin: 30px auto;
+              gap: 40px;
+              width: 100%;
+            "
+          >
+            <img
+              src="superhost_badge.avif"
+              alt="Superhost Badge"
+              style="max-height: 80px; border-radius: 8px"
+            />
+            <img
+              src="download.avif"
+              alt="Verified Host Badge"
+              style="max-height: 80px; border-radius: 8px"
+            />
           </div>
         </div>
       </div>
@@ -706,13 +1545,6 @@
               most. With our Property Inspections, Cleaning, and Maintenance,
               you can rest assured that your property remains pristine, backed
               by meticulous care and attention.
-            </p>
-            <p class="services-description fade-in">
-              Lastly, navigate the complexities of Tax & Asset Management with
-              our expert guidance, tailored to optimize your wealth and secure
-              your financial future. Experience unparalleled convenience and
-              reliability with our all-encompassing property management
-              solutions.
             </p>
           </div>
         </div>
@@ -772,7 +1604,7 @@
 
     <!-- Marketing Section -->
     <section class="marketing-section">
-      <div class="slider-nav prev d-md-none " onclick="changeSlide(-1)">
+      <div class="slider-nav prev d-md-none" onclick="changeSlide(-1)">
         <i class="fas fa-chevron-left"></i>
       </div>
       <div class="slider-nav next d-md-none" onclick="changeSlide(1)">
@@ -789,14 +1621,14 @@
             <h2 class="marketing-heading fade-in">
               Using Cutting Edge Vacation Rental Marketing
             </h2>
-            <p class="marketing-description fade-in">
+            <!-- <p class="marketing-description fade-in">
               Maximize your vacation rental's potential with our innovative
               marketing strategies. We leverage the latest digital tools and
               platforms to increase visibility, attract your target audience,
               and secure bookings. Our expertise in SEO, social media, and
               content creation ensures your property stays booked and generates
               consistent revenue.
-            </p>
+            </p> -->
             <p class="marketing-description fade-in">
               Trust Bentonville Lodging Company to drive exceptional results for
               your vacation rental business.
@@ -938,9 +1770,264 @@
         </div>
       </div>
     </section>
+    <!-- Review section  -->
+    <section>
+      <div class="text-center mb-5 fade-in">
+        <h2 class="section-title">
+          What Owners <span class="highlight">Say About Us</span>
+        </h2>
+        <p class="section-description">
+          Discover what other property owners have to say about their experience
+          with SPCR! Their reviews offer an authentic glimpse into the benefits
+          and results of working with our dedicated team. Learn how SPCR has
+          helped these owners optimize their investments and succeed in the
+          competitive vacation rental market.
+        </p>
+      </div>
+      <section class="testimonials-section">
+        <div class="testimonials-container">
+          <div class="row justify-content-center fade-in">
+            <div class="col-12">
+              <div
+                id="testimonialCarousel"
+                class="carousel slide testimonial-carousel"
+                data-bs-ride="carousel"
+                data-bs-interval="5000"
+              >
+                <div class="carousel-inner">
+                  <!-- First Slide -->
+                  <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                          <div class="owner-info">
+                            <div class="owner-avatar">
+                              <img
+                                src="WhatsApp Image 2025-08-12 at 8.37.34 PM.jpeg"
+                                alt="House Icon"
+                              />
+                            </div>
+                            <div class="owner-details">
+                              <h5>Kristin</h5>
+                              <p class="owner-role">Owner</p>
+                            </div>
+                          </div>
+                          <p class="testimonial-text">
+                            "Big shout out to Special Places of Costa Rica. Last
+                            night we had a tree fall through our roof. Today
+                            before noon everything has been fixed!!! Amazing!
+                            Thanks Guys!!"
+                          </p>
+                          <div class="star-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                          <div class="owner-info">
+                            <div class="owner-avatar">
+                              <img
+                                src="WhatsApp Image 2025-08-12 at 8.37.34 PM.jpeg"
+                                alt="House Icon"
+                              />
+                            </div>
+                            <div class="owner-details">
+                              <h5>R. Gregerson</h5>
+                              <p class="owner-role">Owner</p>
+                            </div>
+                          </div>
+                          <p class="testimonial-text">
+                            "Living 3700 miles away from our property requires
+                            that you place a lot of trust in someone. Special
+                            Places was the best decision we could have made in
+                            property managers."
+                          </p>
+                          <div class="star-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                          <div class="owner-info">
+                            <div class="owner-avatar">
+                              <img
+                                src="WhatsApp Image 2025-08-12 at 8.37.34 PM.jpeg"
+                                alt="House Icon"
+                              />
+                            </div>
+                            <div class="owner-details">
+                              <h5>L. Iversen</h5>
+                              <p class="owner-role">Owner</p>
+                            </div>
+                          </div>
+                          <p class="testimonial-text">
+                            "On our visits to Costa Rica we met the staff both
+                            in the office and at our property and they always
+                            had a sincere interest in helping us keep our condo
+                            rented and in good condition."
+                          </p>
+                          <div class="star-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Second Slide -->
+                  <div class="carousel-item">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                          <div class="owner-info">
+                            <div class="owner-avatar">
+                              <img
+                                src="WhatsApp Image 2025-08-12 at 8.37.34 PM.jpeg"
+                                alt="House Icon"
+                              />
+                            </div>
+                            <div class="owner-details">
+                              <h5>R. Garcia</h5>
+                              <p class="owner-role">Owner</p>
+                            </div>
+                          </div>
+                          <p class="testimonial-text">
+                            "SPCR has exceeded our expectations in every way.
+                            Their attention to detail and proactive
+                            communication has made property management
+                            stress-free for us."
+                          </p>
+                          <div class="star-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                          <div class="owner-info">
+                            <div class="owner-avatar">
+                              <img
+                                src="WhatsApp Image 2025-08-12 at 8.37.34 PM.jpeg"
+                                alt="House Icon"
+                              />
+                            </div>
+                            <div class="owner-details">
+                              <h5>Maria S.</h5>
+                              <p class="owner-role">Owner</p>
+                            </div>
+                          </div>
+                          <p class="testimonial-text">
+                            "The team at SPCR treats our property like it's
+                            their own. The level of care and maintenance they
+                            provide is outstanding. Highly recommend their
+                            services!"
+                          </p>
+                          <div class="star-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                          <div class="owner-info">
+                            <div class="owner-avatar">
+                              <img
+                                src="WhatsApp Image 2025-08-12 at 8.37.34 PM.jpeg"
+                                alt="House Icon"
+                              />
+                            </div>
+                            <div class="owner-details">
+                              <h5>James T.</h5>
+                              <p class="owner-role">Owner</p>
+                            </div>
+                          </div>
+                          <p class="testimonial-text">
+                            "Professional, reliable, and always responsive. SPCR
+                            has helped us maximize our rental income while
+                            maintaining the quality of our Costa Rican
+                            investment property."
+                          </p>
+                          <div class="star-rating">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#testimonialCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#testimonialCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#testimonialCarousel"
+                    data-bs-slide-to="0"
+                    class="active"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#testimonialCarousel"
+                    data-bs-slide-to="1"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#testimonialCarousel"
+                    data-bs-slide-to="2"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section mt-5">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -964,12 +2051,24 @@
                 <i class="fas fa-phone"></i>
                 Call Us
               </a>
+              <a href="tel:7152203639" class="cta-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+              </a>
               <a
                 href="mailto:info@bentonvillelodgingco.com"
                 class="cta-btn primary"
               >
                 <i class="fas fa-envelope"></i>
                 Email Us
+              </a>
+              <a
+                href="mailto:info@bentonvillelodgingco.com"
+                class="cta-btn primary"
+              >
+                <i class="fa-solid fa-alarm-clock"></i>
+
+                Schedule a Meeting
               </a>
             </div>
           </div>
@@ -1080,6 +2179,205 @@
             console.error("Error loading footer:", error);
           });
       }
+    </script>
+    <script>
+      document
+        .getElementById("rentalForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const formValues = {};
+
+          // Get all form inputs
+          const inputs = this.querySelectorAll("input, select");
+          inputs.forEach((input) => {
+            if (input.value) {
+              formValues[input.placeholder || input.name] = input.value;
+            }
+          });
+
+          // Show success message with custom styling instead of alert
+          const formCard = document.querySelector(".form-card");
+          const formHeight = formCard.offsetHeight;
+          const formHTML = formCard.innerHTML;
+
+          // Replace form with success message
+          formCard.innerHTML = `
+                <div style="min-height: ${
+                  formHeight - 100
+                }px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <div style="font-size: 3rem; color: var(--highlight-bg); margin-bottom: 20px;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--highlight-bg);">Thank You!</h3>
+                    <p style="color: var(--grey-dark); margin-bottom: 25px;">We've received your rental property details and will contact you soon with your free evaluation.</p>
+                    <button id="newRequestBtn" style="background-color: var(--highlight-bg); border: none; border-radius: 4px; padding: 12px 25px; color: white; font-weight: 500; cursor: pointer;">Submit Another Request</button>
+                </div>
+            `;
+
+          // Add event listener to reset form
+          document
+            .getElementById("newRequestBtn")
+            .addEventListener("click", function () {
+              formCard.innerHTML = formHTML;
+              // Reattach event listeners
+              attachFormEventListeners();
+            });
+        });
+
+      function attachFormEventListeners() {
+        // Re-attach form submit event
+        const rentalForm = document.getElementById("rentalForm");
+        if (rentalForm) {
+          rentalForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const formValues = {};
+
+            // Get all form inputs
+            const inputs = this.querySelectorAll("input, select");
+            inputs.forEach((input) => {
+              if (input.value) {
+                formValues[input.placeholder || input.name] = input.value;
+              }
+            });
+
+            // Show success message (you can replace this with actual form submission)
+            alert(
+              "Thank you for your interest! We will contact you soon with your rental evaluation."
+            );
+
+            // Reset form
+            this.reset();
+          });
+        }
+
+        // Add smooth focus animations
+        document.querySelectorAll(".form-control").forEach((element) => {
+          element.addEventListener("focus", function () {
+            this.style.borderColor = "var(--highlight-bg)";
+            this.style.boxShadow = "0 0 0 3px rgba(26, 26, 26, 0.1)";
+            this.parentElement.style.transform = "translateY(-2px)";
+            this.parentElement.style.transition = "transform 0.2s ease";
+          });
+
+          element.addEventListener("blur", function () {
+            this.style.borderColor = "var(--grey-light)";
+            this.style.boxShadow = "none";
+            this.parentElement.style.transform = "translateY(0)";
+          });
+        });
+      }
+
+      // Add typing animation for the main heading in the rental section
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      // Initialize animations on page load
+      window.addEventListener("load", function () {
+        // Attach initial event listeners
+        attachFormEventListeners();
+
+        // Apply text animation
+        const mainHeading = document.querySelector(
+          ".rental-evaluation-section .main-heading"
+        );
+        if (mainHeading) {
+          const originalText = mainHeading.textContent;
+          setTimeout(() => {
+            typeWriter(mainHeading, originalText, 50);
+          }, 500);
+        }
+      });
+    </script>
+    <script>
+      // Initialize carousel with custom options
+      document.addEventListener("DOMContentLoaded", function () {
+        const carousel = new bootstrap.Carousel("#testimonialCarousel", {
+          interval: 6000,
+          wrap: true,
+          keyboard: true,
+          pause: "hover",
+          touch: true,
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationDelay = "0.2s";
+              entry.target.classList.add("fade-in");
+            }
+          });
+        }, observerOptions);
+
+        // Observe fade-in elements
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Add touch support for mobile swiping
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const carouselElement = document.getElementById("testimonialCarousel");
+
+        if (carouselElement) {
+          carouselElement.addEventListener(
+            "touchstart",
+            (e) => {
+              touchStartX = e.changedTouches[0].screenX;
+            },
+            false
+          );
+
+          carouselElement.addEventListener(
+            "touchend",
+            (e) => {
+              touchEndX = e.changedTouches[0].screenX;
+              handleSwipe();
+            },
+            false
+          );
+
+          function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+              // Swiped left
+              carousel.next();
+            }
+            if (touchEndX > touchStartX + 50) {
+              // Swiped right
+              carousel.prev();
+            }
+          }
+        }
+
+        // Add animation to testimonial cards
+        const testimonialCards = document.querySelectorAll(".testimonial-card");
+        testimonialCards.forEach((card, index) => {
+          card.style.animationDelay = `${index * 0.2}s`;
+          card.classList.add("slide-in");
+        });
+      });
     </script>
   </body>
 </html>
