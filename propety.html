@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What Owners Say About Us - SPCR</title>
-    <link
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Nest - BENTONVILLE</title>
+   <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
       rel="stylesheet"
     />
@@ -12,24 +13,2447 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Custom CSS -->
     <link href="css/main.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <script src="js/includes.js"></script>
     <style>
-     
+        /* Custom gallery styles */
+        .tab-active {
+            border-bottom: 3px solid #000000;
+            color: #000000;
+        }
+
+        .calendar-date {
+            transition: all 0.2s ease;
+        }
+
+        .calendar-date:hover {
+            transform: scale(1.05);
+        }
+
+        .review-card {
+            transition: all 0.3s ease;
+            background-color: #ffffff !important;
+            color: #000000;
+            border: 1px solid #dddddd;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .slideshow-active {
+            animation: fadeInOut 0.5s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .thumbnail-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease;
+        }
+
+        .progress-bar-animation {
+            transition: width 0.1s linear;
+        }
+        
+        /* White color theme */
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .property-details-bg {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+        }
+        
+        .card-body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #000000;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #000000;
+            border-bottom: 3px solid #000000;
+        }
+        
+        .textColor {
+            color: #000000 !important;
+        }
+        
+        .text-white {
+            color: #000000 !important;
+        }
+
+        /* Gallery specific styles */
+        .gallery-section {
+            margin-top: 1rem;
+            /* background-color: white; */
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 0.5rem;
+            border-radius: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
 
       
-    </style>
-  </head>
-  <body>
-    <div id="header-placeholder"></div>
- 
-    <div id="footer-placeholder"></div>
+        .main-gallery-image {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            position: relative;
+            cursor: pointer;
+            height: 430px; /* Set a fixed height for the main image */
+        }
+           @media (max-width: 992px) {
+            .main-gallery-image {
+                height: 300px !important;
+            }
+            .secondary-gallery-image {
+                height: 146px !important;
+            }
+            .show-all-btn {
+                right: 6px !important;
+            }
+        }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="js/includes.js"></script>
- 
-  </body>
+        .secondary-gallery-image {
+            position: relative;
+            cursor: pointer;
+            height: 212px; /* Approximately half the height of the main image */
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0; /* Reset border radius for all images */
+        }
+
+        .show-all-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 5;
+        }
+        
+        .show-all-btn button {
+            background-color: rgba(108, 117, 125, 0.8);
+            font-weight: 500;
+        }
+        
+        .thumbnail-img {
+            width: 100%;
+            height: 96px; /* Equivalent to h-24 in Tailwind */
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .active-thumbnail {
+            border: 2px solid #0d6efd; /* Bootstrap primary color */
+        }
+        
+        .bg-overlay {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Lightbox styles */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1040;
+            display: none;
+        }
+
+        .lightbox-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background-color: #0d6efd; /* Bootstrap primary color */
+            z-index: 1010;
+            display: none;
+        }
+
+        .lightbox-controls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+        }
+        
+        /* Thumbnail panel styles */
+        .thumbnail-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1050;
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+            border-left: 1px solid #dddddd;
+        }
+        
+        .thumbnail-hidden {
+            transform: translateX(100%);
+        }
+        
+        #thumbnailGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .lightbox-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 0 4rem;
+        }
+
+        .lightbox-nav-btn {
+            position: absolute;
+            color: black;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .lightbox-prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-next {
+            right: 1.5rem;
+        }
+
+        .lightbox-image-container {
+            max-width: 1280px;
+            max-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* This style is already defined above */
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .thumbnail-item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .thumbnail-active {
+            border: 2px solid #3b82f6;
+        }
+
+        /* Share modal */
+        .share-modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 50;
+            display: none;
+        }
+
+        .share-modal-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            max-width: 28rem;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .share-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        .facebook-btn {
+            background-color: #2563eb;
+        }
+        
+        .facebook-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .twitter-btn {
+            background-color: #60a5fa;
+        }
+        
+        .twitter-btn:hover {
+            background-color: #3b82f6;
+        }
+
+        .pinterest-btn {
+            background-color: #dc2626;
+        }
+        
+        .pinterest-btn:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Show all modal */
+        .show-all-modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 40;
+            display: none;
+            overflow-y: auto;
+        }
+
+        .all-images-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .all-images-grid img {
+            border-radius: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .all-images-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .all-images-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .all-images-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* New property styles */
+        /* .property-details {
+            padding-top: 30px;
+        } */
+        
+        .gallery-container {
+            margin-bottom: 30px;
+        }
+        
+        .main-image {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .thumbnail {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .property-title {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .property-location {
+            color: var(--secondary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .property-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            color: var(--primary-dark);
+        }
+        
+        .feature-icon {
+            margin-right: 8px;
+            color: var(--gold);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--secondary-dark);
+            margin-bottom: 20px;
+        }
+        
+        .booking-widget {
+            background-color: var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            margin-left: 15px;
+        }
+        
+        .property-details-bg {
+            background-color: var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+
+        .date-input {
+            margin-bottom: 15px;
+        }
+        
+        .nav-tabs {
+            border-bottom: 2px solid var(--secondary-light);
+            margin-bottom: 25px;
+        }
+        
+        .nav-link {
+            color: var(--primary-dark);
+            font-weight: 500;
+            padding: 10px 20px;
+            border: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        
+        .nav-link.active {
+            color: var(--gold);
+            border-bottom: 3px solid var(--gold);
+            background-color: transparent;
+        }
+        
+        /* Mobile tabs container and select styling */
+        .mobile-tab-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-tab-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .mobile-tab-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--secondary-light);
+            border-radius: 8px;
+            background-color: white;
+            color: var(--primary-dark);
+            font-weight: 500;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23143c5d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 36px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-tab-select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(216, 180, 99, 0.25);
+            outline: none;
+        }
+        
+        /* Show mobile tabs select only on small screens */
+        @media (max-width: 767px) {
+            .mobile-tab-container {
+                display: block;
+            }
+            
+            .nav-tabs {
+                display: none;
+            }
+        }
+        
+        .amenities-list {
+            column-count: 2;
+            column-gap: 30px;
+        }
+        
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            break-inside: avoid;
+        }
+        
+        .amenity-icon {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .review-card {
+            background-color: var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .reviewer {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .review-date {
+            color: var(--secondary-dark);
+            font-size: 0.9rem;
+        }
+        
+        .review-stars {
+            color: gold;
+            margin-bottom: 10px;
+        }
+        
+        .review-text {
+            color: var(--secondary-dark);
+        }
+        /* Apply specific corner roundings using direct classes */
+        .left-rounded {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        
+        .top-right-rounded {
+            border-top-right-radius: 8px;
+        }
+        
+        .bottom-right-rounded {
+            border-bottom-right-radius: 8px;
+        }
+        
+        .property-img {
+            border-radius: 10px;
+        }
+        
+        /* Hide full content initially */
+        .hidden-content {
+            display: none;
+        }
+        
+        /* Style for tab navigation */
+        .nav-tabs .nav-link.active {
+            color: var(--gold);
+            border-bottom: 3px solid var(--gold);
+            background-color: transparent;
+            font-weight: bold;
+        }
+        
+        .nav-tabs .nav-link {
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-tabs .nav-link:hover:not(.active) {
+            color: var(--grey-dark);
+            border-color: transparent;
+        }
+        
+        /* Show more button styling */
+        .show-more-btn {
+            color: #000000;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-top: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .show-more-btn:hover {
+            color: #555555;
+        }
+        
+        /* Smooth section transitions */
+        .section-container {
+            transition: opacity 0.5s ease;
+            padding: 25px 0;
+            opacity: 0.9;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .section-container:target {
+            opacity: 1;
+        }
+        
+        /* Override Bootstrap classes for white theme */
+        .bg-dark {
+            background-color: #ffffff !important;
+        }
+        
+        .bg-secondary {
+            background-color: #f5f5f5 !important;
+        }
+        
+        /* Ensure form elements have the right colors */
+        input, select, textarea, .form-control {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border: 1px solid #dddddd !important;
+        }
+        
+        /* Active section highlight */
+        .active-section {
+            border-bottom: 2px solid #000000;
+        }
+        
+        /* Make all icons black */
+        i.fa-solid, i.fa, i.fas {
+            color: #000000;
+        }
+        
+        /* Stars for reviews should be gold */
+        .review-stars i.fas, i.fa-star {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Gallery Component -->
+    <div class="gallery-section mx-3">
+        <!-- Main Gallery Section -->
+        <div class="container py-4">
+            <!-- Image Grid -->
+            <h3 class="fw-bold text-secondary-dark">BENTONVILLE</h3>
+            <div class="adr-area" style="margin-bottom: 20px;">
+                                                    <h6 class="text-secondary-dark"><i class="fa-solid fa-location-dot text-secondary-dark"></i> lorem, xy</h6>
+                                            </div>
+            <div class="position-relative mb-4">
+                <div class="gallery-grid" id="imageGrid">
+                <!-- Main large image - left side rounded -->
+                <div class="main-gallery-image" onclick="openLightbox(0)">
+                    <img src="WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg" alt="Cabin Exterior" class="gallery-img left-rounded">
+                </div>
+
+                <!-- Secondary images - top row -->
+                <div class="secondary-gallery-image" onclick="openLightbox(1)">
+                    <img src="WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg" alt="Cabin Side View" class="gallery-img">
+                </div>
+                <div class="secondary-gallery-image" onclick="openLightbox(2)">
+                    <img src="WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg" alt="Deck View" class="gallery-img top-right-rounded">
+                </div>
+                
+                <!-- Secondary images - bottom row -->
+                <div class="secondary-gallery-image" onclick="openLightbox(3)">
+                    <img src="WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg" alt="King Bedroom" class="gallery-img">
+                </div>
+                <div class="secondary-gallery-image" onclick="openLightbox(4)">
+                    <img src="WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg" alt="Game Room" class="gallery-img bottom-right-rounded">
+                </div>
+            </div>
+                <!-- Show All Button -->
+                <div class="show-all-btn">
+                    <button onclick="openShowAll()" title="Show all photos" class="btn btn-secondary shadow-sm">
+                        <span>Show All</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightboxModal" class="lightbox-modal">
+            <!-- Progress Bar for Slideshow -->
+            <div id="progressBar" class="lightbox-progress progress-bar-animation" style="width: 0%"></div>
+
+            <!-- Top Controls -->
+            <div class="lightbox-controls">
+                <div class="px-2 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center py-2">
+                    <div class="d-flex align-items-center me-4">
+                        <span class="text-dark fs-5 fw-medium" id="imageCounter" aria-live="polite">1 / 12</span>
+                    </div>
+                    <div class="d-flex align-items-center border border-secondary bg-light p-2">
+                        <button onclick="startSlideshow()" id="slideshowBtn" aria-label="Start slideshow"
+                            title="Start slideshow" class="btn btn-sm text-dark me-2">
+                            <i class="fa-solid fa-play" id="slideshowIcon"></i>
+                        </button>
+                        <button onclick="toggleThumbnails()" aria-label="Show thumbnails" title="Show thumbnails"
+                            class="btn btn-sm text-dark me-2">
+                            <i class="fa-solid fa-border-all"></i>
+                        </button>
+                        <button onclick="searchImages()" aria-label="Search images" title="Search images"
+                            class="btn btn-sm text-dark me-2">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                        <button onclick="toggleFullscreen()" aria-label="Toggle fullscreen" title="Toggle fullscreen"
+                            class="btn btn-sm text-dark me-2">
+                            <i class="fa-solid fa-expand" id="fullscreenIcon"></i>
+                        </button>
+                        <button onclick="openShareModal()" aria-label="Share image" title="Share image"
+                            class="btn btn-sm text-dark me-2">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                        <button onclick="closeLightbox()" aria-label="Close lightbox" title="Close lightbox"
+                            class="btn btn-sm text-dark">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Image Container -->
+            <div class="lightbox-main">
+                <button onclick="previousImage()" aria-label="Previous image" title="Previous image"
+                    class="lightbox-nav-btn lightbox-prev btn text-dark">
+                    <i class="fa-solid fa-chevron-left fs-2"></i>
+                </button>
+
+                <div class="lightbox-image-container">
+                    <img id="lightboxImage" src="" alt="" class="lightbox-img slideshow-active">
+                </div>
+
+                <button onclick="nextImage()" aria-label="Next image" title="Next image"
+                    class="lightbox-nav-btn lightbox-next btn text-dark">
+                    <i class="fa-solid fa-chevron-right fs-2"></i>
+                </button>
+            </div>
+
+            <!-- Thumbnail Panel -->
+            <div id="thumbnailPanel" class="thumbnail-panel">
+                <div class="p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <button onclick="toggleThumbnails()" class="btn btn-sm text-white">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-grid" id="thumbnailGrid">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Modal -->
+        <div id="shareModal" class="share-modal">
+            <div class="share-modal-content">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h3 class="fs-5 fw-semibold">Share</h3>
+                    <button id="copied" class="">
+                        <span class="visually-hidden">copied</span>
+                    </button>
+                    <button onclick="closeShareModal()" class="btn btn-sm text-secondary">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="share-buttons">
+                    <button onclick="shareToFacebook()" class="share-btn facebook-btn">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Facebook</span>
+                    </button>
+                    <button onclick="shareToTwitter()" class="share-btn twitter-btn">
+                        <i class="fa-brands fa-twitter"></i>
+                        <span>Twitter</span>
+                    </button>
+                    <button onclick="shareToPinterest()" class="share-btn pinterest-btn">
+                        <i class="fa-brands fa-pinterest"></i>
+                        <span>Pinterest</span>
+                    </button>
+                </div>
+
+                <div class="border-top pt-3">
+                    <input type="text" value="https://www.relaxresetbookdirect.com/cabin-w-fire-pit-and-mtn-views"
+                        class="form-control mb-2" readonly>
+                    <button onclick="copyLink()" class="btn btn-dark w-100">
+                        Copy Link
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Show All Images Modal -->
+        <div id="showAllModal" class="show-all-modal">
+            <div class="min-vh-100 p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h2 class="text-white fs-3 fw-semibold">All Photos - Cabin w/ Fire Pit and Mtn Views</h2>
+                    <button onclick="closeShowAll()" class="btn btn-dark">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+                <div class="all-images-grid" id="allImagesGrid">
+                    <!-- All images will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container property-details">
+        <div class="row">
+            <div class="property-details-bg">
+                <!-- Quick Navigation -->
+                <div class="quick-nav mb-4">
+                    <div class="d-flex justify-content-center gap-4 pb-2">
+                        <a href="#overview-section" class="quick-nav-link">OVERVIEW</a>
+                        <a href="#amenities-section" class="quick-nav-link">AMENITIES</a>
+                        <a href="#availability-section" class="quick-nav-link">AVAILABILITY</a>
+                        <a href="#location-section" class="quick-nav-link">LOCATION</a>
+                        <a href="#reviews-section" class="quick-nav-link">REVIEWS</a>
+                        <a href="#policies-section" class="quick-nav-link">POLICIES</a>
+                    </div>
+                </div>
+                
+                <style>
+                    .quick-nav-link {
+                        color: #000000;
+                        text-decoration: none;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+                        padding: 5px 10px;
+                    }
+                    
+                    .quick-nav-link:hover {
+                        color: #555555;
+                    }
+                    
+                    .section-scroll {
+                        scroll-margin-top: 100px;
+                    }
+                    
+                    html {
+                        scroll-behavior: smooth;
+                    }
+                </style>
+
+                    <div class="content-sections">
+                        <div class="row hosted">
+                            <div class="col-lg-11">
+                                <h4 class="fw-bold textColor mt-5">Mountain Nest - BENTONVILLE</h4>
+                                <div class="ammenity-home">
+                                    <span class="text-dark me-3"><i class="fa-solid fa-bed"></i> 3 Beds</span>
+                                    <span class="text-dark me-3"><i class="fa-solid fa-bath"></i> 2 Baths</span>
+                                    <span class="text-dark me-3"><i class="fa fa-users"></i> 6 Guests</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- Overview Section -->
+                        <div id="overview-section" class="section-container section-scroll">
+                            <h4 class="fw-bold textColor">Overview</h4>
+                            <div class="overcontent">
+                                <div class="description-short">
+                                    <p>Nestled in the heart of Bentonville, this stunning Mountain Nest offers the perfect blend of modern comfort and rustic charm. Just minutes from world-class mountain biking trails, Crystal Bridges Museum, and downtown dining, this spacious retreat features three bedrooms, two bathrooms, and can comfortably accommodate up to 6 guests.</p>
+                                    <p>The open-concept living area boasts floor-to-ceiling windows with breathtaking views, a stone fireplace, and premium furnishings. The gourmet kitchen comes fully equipped with stainless steel appliances and everything you need to prepare meals at home.</p>
+                                </div>
+                                <div class="description-full hidden-content">
+                                    <p>Nestled in the heart of Bentonville, this stunning Mountain Nest offers the perfect blend of modern comfort and rustic charm. Just minutes from world-class mountain biking trails, Crystal Bridges Museum, and downtown dining, this spacious retreat features three bedrooms, two bathrooms, and can comfortably accommodate up to 6 guests.</p>
+                                    <p>The open-concept living area boasts floor-to-ceiling windows with breathtaking views, a stone fireplace, and premium furnishings. The gourmet kitchen comes fully equipped with stainless steel appliances and everything you need to prepare meals at home.</p>
+                                    <p>Outside, enjoy the expansive deck with outdoor seating, gas grill, and a relaxing hot tub where you can unwind after a day of adventure. The property borders a wooded area, providing privacy and opportunities to spot local wildlife.</p>
+                                    <p>All three bedrooms feature premium mattresses and linens, with the primary suite offering a king bed and ensuite bathroom with soaking tub. The second bedroom has a queen bed, while the third bedroom includes two twin beds, perfect for kids or additional guests.</p>
+                                    <p>Whether you're visiting for mountain biking adventures, exploring the vibrant art scene, or simply seeking a peaceful retreat in nature, Mountain Nest offers the ideal base for your Bentonville experience.</p>
+                                </div>
+                            </div>
+                            <button class="show-more-btn btn btn-link text-decoration-none mt-2" data-section="description">Show More <i class="fas fa-chevron-down"></i></button>
+                        </div>
+                        <hr>
+
+                        <!-- Amenities Section -->
+                        <div id="amenities-section" class="section-container section-scroll">
+                            <div class="amenities">
+                                <h4 class="fw-bold textColor">Amenities</h4>
+                                <div class="amenities-preview">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold textColor mb-3">Essentials</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Wifi</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Air conditioning</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Heating</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Washer & Dryer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Free parking</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Hair dryer</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold textColor mb-3">Features</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Hot tub</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Fireplace</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Outdoor grill</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Deck/Patio</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Private entrance</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Mountain views</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="amenities-full hidden-content">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold textColor mb-3">Essentials</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Wifi</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Air conditioning</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Heating</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Washer & Dryer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Free parking</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Hair dryer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Essentials</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Iron</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold textColor mb-3">Features</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Hot tub</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Fireplace</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Outdoor grill</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Deck/Patio</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Private entrance</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Mountain views</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Fire pit</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Keyless entry</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold textColor mb-3">Kitchen & Dining</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Full kitchen</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Refrigerator</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Microwave</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Dishwasher</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Coffee maker</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Dining area</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold textColor mb-3">Entertainment</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">TV with cable/satellite</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Smart TV with streaming</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Books and games</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa-solid fa-circle-check me-2"></i>
+                                                        <span class="text-white">Bluetooth speaker</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="show-more-btn btn btn-link text-decoration-none mt-2" data-section="amenities">Show More <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            
+                        </div>
+                        <hr>
+
+                        <!-- Availability Section -->
+                        <div id="availability-section" class="section-container section-scroll">
+                            <h4 class="textColor fw-bold">Availability</h4>
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-4">
+                                            <div class="col-md-6">
+                                                <h5 class="card-title mb-3">August 2025</h5>
+                                                <div class="d-flex justify-content-between mb-2">
+                                                    <div>Sun</div>
+                                                    <div>Mon</div>
+                                                    <div>Tue</div>
+                                                    <div>Wed</div>
+                                                    <div>Thu</div>
+                                                    <div>Fri</div>
+                                                    <div>Sat</div>
+                                                </div>
+                                                <div class="d-flex flex-wrap">
+                                                    <div class="p-2 text-center" style="width:14.28%"></div>
+                                                    <div class="p-2 text-center" style="width:14.28%"></div>
+                                                    <div class="p-2 text-center" style="width:14.28%"></div>
+                                                    <div class="p-2 text-center" style="width:14.28%"></div>
+                                                    <div class="p-2 text-center" style="width:14.28%">1</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">2</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">3</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">4</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">5</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">6</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">7</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">8</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">9</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">10</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">11</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">12</div>
+                                                    <div class="p-2 text-center" style="width:14.28%">13</div>
+                                                    <div class="p-2 text-center bg-success text-white rounded-pill" style="width:14.28%">14</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">15</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">16</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">17</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">18</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">19</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">20</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">21</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">22</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">23</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">24</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">25</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">26</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">27</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">28</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">29</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">30</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">31</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5 class="card-title mb-3">September 2025</h5>
+                                                <div class="d-flex justify-content-between mb-2">
+                                                    <div>Sun</div>
+                                                    <div>Mon</div>
+                                                    <div>Tue</div>
+                                                    <div>Wed</div>
+                                                    <div>Thu</div>
+                                                    <div>Fri</div>
+                                                    <div>Sat</div>
+                                                </div>
+                                                <div class="d-flex flex-wrap">
+                                                    <div class="p-2 text-center" style="width:14.28%"></div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">1</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">2</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">3</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">4</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">5</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">6</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">7</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">8</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">9</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">10</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">11</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">12</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">13</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">14</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">15</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">16</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">17</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">18</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">19</div>
+                                                    <div class="p-2 text-center bg-danger text-white" style="width:14.28%">20</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">21</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">22</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">23</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">24</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">25</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">26</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">27</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">28</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">29</div>
+                                                    <div class="p-2 text-center bg-success text-white" style="width:14.28%">30</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="me-4">
+                                                <span class="badge bg-success">&nbsp;&nbsp;&nbsp;</span>
+                                                <span class="ms-1">Available</span>
+                                            </div>
+                                            <div>
+                                                <span class="badge bg-danger">&nbsp;&nbsp;&nbsp;</span>
+                                                <span class="ms-1">Booked</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0 text-muted">For real-time availability, please use the booking widget or contact us directly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- Location Section -->
+                        <div id="location-section" class="section-container section-scroll">
+                            <h4 class="textColor fw-bold">Where you'll be</h4>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102482.04724088279!2d-94.32704233932315!3d36.355662272827095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c91af4ca43809d%3A0x14d3fc78d0195346!2sBentonville%2C%20AR!5e0!3m2!1sen!2sus!4v1692001674173!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            
+                          
+                        </div>
+                        <hr>
+
+                        <!-- Reviews Section -->
+                        <div id="reviews-section" class="section-container section-scroll">
+                            <h4 class="textColor fw-bold">Reviews</h4>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                 
+                                 
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <!-- Review Cards -->
+                                <div class="col-12 mb-4">
+                                    <div class="">
+                                        <div class="card-body">
+                                            <div class="review-header">
+                                                <div class="reviewer">Jessica R.</div>
+                                                <div class="review-date">August 2025</div>
+                                            </div>
+                                            <div class="review-stars mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-text">
+                                                This place is a gem! The mountain views are breathtaking, and the hot tub was the perfect way to unwind after a day on the trails. Everything was spotlessly clean and exactly as pictured. We'll definitely be back!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="">
+                                        <div class="card-body">
+                                            <div class="review-header">
+                                                <div class="reviewer">Jessica R.</div>
+                                                <div class="review-date">August 2025</div>
+                                            </div>
+                                            <div class="review-stars mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-text">
+                                                This place is a gem! The mountain views are breathtaking, and the hot tub was the perfect way to unwind after a day on the trails. Everything was spotlessly clean and exactly as pictured. We'll definitely be back!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="">
+                                        <div class="card-body">
+                                            <div class="review-header">
+                                                <div class="reviewer">Michael T.</div>
+                                                <div class="review-date">July 2025</div>
+                                            </div>
+                                            <div class="review-stars mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="review-text">
+                                                Perfect location for our mountain biking trip. The house was spacious and comfortable, with easy access to trails. The hosts were super responsive and provided great local tips. Would highly recommend!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                               
+                            </div>
+                            
+                            
+                        </div>
+                        <hr>
+
+                        <!-- Policies Section -->
+                        <div id="policies-section" class="section-container section-scroll">
+                            <h4 class="textColor fw-bold">Things to know</h4>
+                            <div class="row">
+                                <div class="col-lg-12 rule card mb-3">
+                                    <div class="area card-body">
+                                        <h4 class="main textColor fw-bold">House Rules</h4>
+                                        <div class="rules-short">
+                                            <p>Check-in: 4:00 PM - 10:00 PM</p>
+                                            <p>Checkout: 11:00 AM</p>
+                                            <p>No smoking</p>
+                                            <p>No pets</p>
+                                            <p>No parties or events</p>
+                                            <p>Maximum 6 guests</p>
+                                        </div>
+                                        <div class="rules-full hidden-content">
+                                            <p>Check-in: 4:00 PM - 10:00 PM</p>
+                                            <p>Checkout: 11:00 AM</p>
+                                            <p>No smoking anywhere on the property</p>
+                                            <p>No pets allowed</p>
+                                            <p>No parties or events</p>
+                                            <p>Maximum 6 guests</p>
+                                            <p>Quiet hours from 10:00 PM to 8:00 AM</p>
+                                            <p>Please remove shoes when entering the home</p>
+                                            <p>Trash should be placed in designated bins</p>
+                                            <p>Do not rearrange furniture</p>
+                                            <p>Children must be supervised at all times</p>
+                                            <p>No glass items allowed in the hot tub</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 safety card mb-3">
+                                    <div class="area card-body">
+                                        <h4 class="main textColor fw-bold">Safety & Property</h4>
+                                        <div class="safety-short">
+                                            <p>Smoke alarm installed</p>
+                                            <p>Carbon monoxide alarm</p>
+                                            <p>Fire extinguisher</p>
+                                            <p>First aid kit</p>
+                                            <p>Security cameras on property (exterior only)</p>
+                                        </div>
+                                        <div class="safety-full hidden-content">
+                                            <p>Smoke alarm installed in every bedroom and common area</p>
+                                            <p>Carbon monoxide alarm installed near heating sources</p>
+                                            <p>Fire extinguisher in kitchen and near fireplace</p>
+                                            <p>First aid kit in master bathroom cabinet</p>
+                                            <p>Security cameras on property (exterior only, facing driveway and entry)</p>
+                                            <p>Deck is elevated - supervise children</p>
+                                            <p>Hot tub temperature preset for safety</p>
+                                            <p>Emergency contact information posted in kitchen</p>
+                                            <p>Deadbolt locks on all exterior doors</p>
+                                            <p>Motion-activated exterior lighting</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="cancel card mb-3 col-lg-12">
+                                    <div class="area card-body">
+                                        <h4 class="main textColor fw-bold">Cancellation policy</h4>
+                                        <div class="cancellation-short">
+                                            <p>Free cancellation for 48 hours after booking, as long as the cancellation is made at least 14 days before check-in.</p>
+                                            <p>Cancel before 2:00 PM on Aug 1 and get a 50% refund, minus the service fee.</p>
+                                        </div>
+                                        <div class="cancellation-full hidden-content">
+                                            <p>Free cancellation for 48 hours after booking, as long as the cancellation is made at least 14 days before check-in.</p>
+                                            <p>Cancel before 2:00 PM on Aug 1 and get a 50% refund, minus the service fee.</p>
+                                            <p>Cancel after 2:00 PM on Aug 1 and the reservation is non-refundable.</p>
+                                            <p>Service fees are refunded if cancellation happens before check-in and is within 48 hours of booking.</p>
+                                            <p>The cleaning fee is always refunded if you cancel before check-in.</p>
+                                            <p>If you arrive and find the listing isn't as advertised, you'll have one hour to inform us to be eligible for a full refund.</p>
+                                            <p>In the event of severe weather or natural disasters, special cancellation terms may apply.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="show-more-btn btn btn-link text-decoration-none mt-2" data-section="cancellation">Show More <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+         
+                   
+            
+            <div class="col-lg-4">
+                <!-- Booking Widget -->
+                <div class="booking-widget" style="background-color: #ffffff; border: 1px solid #dddddd;">
+                    <h4 class="mb-4 text-dark">Book Your Stay</h4>
+                    <form>
+                        <div class="date-input">
+                            <label class="form-label text-dark">Check-in</label>
+                            <input type="date" class="form-control bg-white text-dark border">
+                        </div>
+                        <div class="date-input">
+                            <label class="form-label text-dark">Check-out</label>
+                            <input type="date" class="form-control bg-white text-dark border">
+                        </div>
+                        <div class="date-input">
+                            <label class="form-label text-dark">Guests</label>
+                            <select class="form-control bg-white text-dark border">
+                                <option>1 guest</option>
+                                <option>2 guests</option>
+                                <option>3 guests</option>
+                                <option>4 guests</option>
+                                <option>5 guests</option>
+                                <option>6 guests</option>
+                                <option>7 guests</option>
+                                <option>8 guests</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn w-100" style="background-color: #000000; color: white;">Check Availability</button>
+                    </form>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>$249 x 5 nights</span>
+                        <span>$1,245</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Cleaning fee</span>
+                        <span>$100</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Service fee</span>
+                        <span>$95</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between fw-bold">
+                        <span>Total</span>
+                        <span>$1,440</span>
+                    </div> 
+                </div>
+                
+                      </div>
+        </div>
+    </div>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder" class="mt-5"></div>
+    
+</div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // public/Gallery Component JavaScript
+        const images = [
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Cabin Exterior' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Cabin Side View' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Deck View' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'King Bedroom' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Game Room with Pool Table' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Living Room' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Kitchen' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Bathroom' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Hot Tub Area' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Mountain View' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Forest Setting' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Fire Pit Area' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Deck View' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Cabin Side View' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'King Bedroom' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Game Room with Pool Table' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Cabin Exterior' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Living Room' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Kitchen' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Bathroom' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Hot Tub Area' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Mountain View' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Forest Setting' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Fire Pit Area' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Fire Pit Area' },
+            { src: 'WhatsApp Image 2025-08-07 at 7.39.57 PM.jpeg', alt: 'Fire Pit Area' }
+        ];
+
+        let currentImageIndex = 0;
+        let isSlideshow = false;
+        let slideshowInterval;
+        let isFullscreen = false;
+        let thumbnailsVisible = false;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightboxModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            updateLightboxImage();
+            populateThumbnails();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            stopSlideshow();
+            exitFullscreen();
+        }
+
+        function updateLightboxImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = images[currentImageIndex].src;
+            lightboxImage.alt = images[currentImageIndex].alt;
+            document.getElementById('imageCounter').textContent = `${currentImageIndex + 1} / ${images.length}`;
+
+            // Update active thumbnail
+            updateActiveThumbnail();
+        }
+
+        function nextImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            // Remove the current class to reset animation
+            lightboxImage.classList.remove('slideshow-active');
+            // Force reflow
+            void lightboxImage.offsetWidth;
+
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateLightboxImage();
+
+            // Add animation class
+            lightboxImage.classList.add('slideshow-active');
+        }
+
+        function previousImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            // Remove the current class to reset animation
+            lightboxImage.classList.remove('slideshow-active');
+            // Force reflow
+            void lightboxImage.offsetWidth;
+
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateLightboxImage();
+
+            // Add animation class
+            lightboxImage.classList.add('slideshow-active');
+        }
+
+        function startSlideshow() {
+            if (!isSlideshow) {
+                isSlideshow = true;
+                document.getElementById('slideshowIcon').classList.remove('fa-play');
+                document.getElementById('slideshowIcon').classList.add('fa-pause');
+                
+                document.getElementById('progressBar').style.display = 'block';
+
+                let progress = 0;
+                const progressBar = document.getElementById('progressBar');
+                const slideDuration = 3000; // 3 seconds per slide
+                const updateInterval = 20; // Update every 20ms for smoother animation
+                const increment = (updateInterval / slideDuration) * 100;
+
+                slideshowInterval = setInterval(() => {
+                    progress += increment;
+                    progressBar.style.width = `${progress}%`;
+
+                    if (progress >= 100) {
+                        progress = 0;
+                        progressBar.style.width = '0%';
+                        // Add fadeOut class to current image
+                        const lightboxImage = document.getElementById('lightboxImage');
+                        lightboxImage.classList.add('slideshow-active');
+                        nextImage();
+                        // Remove fadeOut class after animation completes
+                        setTimeout(() => {
+                            lightboxImage.classList.remove('slideshow-active');
+                        }, 500);
+                    }
+                }, updateInterval);
+            } else {
+                stopSlideshow();
+            }
+        }
+
+        function stopSlideshow() {
+            isSlideshow = false;
+            clearInterval(slideshowInterval);
+            document.getElementById('slideshowIcon').classList.remove('fa-pause');
+            document.getElementById('slideshowIcon').classList.add('fa-play');
+            document.getElementById('progressBar').style.display = 'none';
+            document.getElementById('progressBar').style.width = '0%';
+        }
+
+        function toggleFullscreen() {
+            if (!isFullscreen) {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                }
+                document.getElementById('fullscreenIcon').classList.remove('fa-expand');
+                document.getElementById('fullscreenIcon').classList.add('fa-compress');
+                isFullscreen = true;
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                document.getElementById('fullscreenIcon').classList.remove('fa-compress');
+                document.getElementById('fullscreenIcon').classList.add('fa-expand');
+                isFullscreen = false;
+            }
+        }
+
+        function exitFullscreen() {
+            if (isFullscreen && document.exitFullscreen) {
+                document.exitFullscreen();
+                document.getElementById('fullscreenIcon').classList.remove('fa-compress');
+                document.getElementById('fullscreenIcon').classList.add('fa-expand');
+                isFullscreen = false;
+            }
+        }
+
+        function toggleThumbnails() {
+            const panel = document.getElementById('thumbnailPanel');
+            if (!thumbnailsVisible) {
+                panel.classList.remove('thumbnail-hidden');
+                thumbnailsVisible = true;
+            } else {
+                panel.classList.add('thumbnail-hidden');
+                thumbnailsVisible = false;
+            }
+        }
+
+        function populateThumbnails() {
+            const thumbnailGrid = document.getElementById('thumbnailGrid');
+            thumbnailGrid.innerHTML = '';
+
+            images.forEach((image, index) => {
+                const thumbnailDiv = document.createElement('div');
+                thumbnailDiv.className = 'position-relative cursor-pointer thumbnail-hover';
+                thumbnailDiv.onclick = () => selectThumbnail(index);
+                thumbnailDiv.innerHTML = `
+                        <img src="${image.src}" alt="${image.alt}" class="w-100 thumbnail-img rounded ${index === currentImageIndex ? 'active-thumbnail' : ''}">
+                        ${index === currentImageIndex ? '<div class="position-absolute top-0 start-0 w-100 h-100 bg-overlay rounded"></div>' : ''}
+                    `;
+                thumbnailGrid.appendChild(thumbnailDiv);
+            });
+        }
+
+        function selectThumbnail(index) {
+            currentImageIndex = index;
+            updateLightboxImage();
+        }
+
+        function updateActiveThumbnail() {
+            const thumbnails = document.querySelectorAll('#thumbnailGrid > div');
+            thumbnails.forEach((thumb, index) => {
+                const img = thumb.querySelector('img');
+                const overlay = thumb.querySelector('div');
+                if (index === currentImageIndex) {
+                    img.classList.add('active-thumbnail');
+                    if (!overlay) {
+                        thumb.innerHTML += '<div class="position-absolute top-0 start-0 w-100 h-100 bg-overlay rounded"></div>';
+                    }
+                } else {
+                    img.classList.remove('active-thumbnail');
+                    if (overlay) {
+                        overlay.remove();
+                    }
+                }
+            });
+        }
+
+        function openShareModal() {
+            const modal = document.getElementById('shareModal');
+            modal.style.display = 'flex';
+            modal.classList.add('d-flex', 'align-items-center', 'justify-content-center');
+        }
+
+        function closeShareModal() {
+            const modal = document.getElementById('shareModal');
+            modal.style.display = 'none';
+            modal.classList.remove('d-flex', 'align-items-center', 'justify-content-center');
+        }
+
+        function shareToFacebook() {
+            const url = encodeURIComponent('https://www.relaxresetbookdirect.com/cabin-w-fire-pit-and-mtn-views');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareToTwitter() {
+            const url = encodeURIComponent('https://www.relaxresetbookdirect.com/cabin-w-fire-pit-and-mtn-views');
+            const text = encodeURIComponent('Check out this amazing cabin with fire pit and mountain views!');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareToPinterest() {
+            const url = encodeURIComponent('https://www.relaxresetbookdirect.com/cabin-w-fire-pit-and-mtn-views');
+            const description = encodeURIComponent('Amazing cabin with fire pit and mountain views');
+            const media = encodeURIComponent(images[currentImageIndex].src);
+            window.open(`https://pinterest.com/pin/create/button/?url=${url}&description=${description}&media=${media}`, '_blank', 'width=600,height=400');
+        }
+
+        async function copyLink() {
+            const input = document.querySelector('#shareModal input');
+            const text = input.value;
+
+            try {
+                // Use modern Clipboard API if available
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    // Fallback to older method
+                    input.select();
+                    document.execCommand('copy');
+                }
+
+                const button = document.getElementById('copied');
+                button.textContent = 'Copied!';
+                button.classList.add('bg-success', 'text-white', 'px-3', 'py-1', 'rounded');
+                button.classList.remove('bg-dark');
+
+                setTimeout(() => {
+                    button.textContent = '';
+                    button.classList.remove('bg-success');
+                    button.innerHTML = '<span class="visually-hidden">copied</span>';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy link. Please try selecting and copying manually.');
+            }
+        }
+
+        function searchImages() {
+            alert('Search functionality would be implemented here!');
+        }
+        
+        function openShowAll() {
+            const modal = document.getElementById('showAllModal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Populate all images
+            const allImagesGrid = document.getElementById('allImagesGrid');
+            allImagesGrid.innerHTML = '';
+            
+            images.forEach((image, index) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'position-relative';
+                imgContainer.innerHTML = `
+                    <img src="${image.src}" alt="${image.alt}" class="w-100 rounded" onclick="openLightbox(${index})">
+                    <p class="text-white mt-2">${image.alt}</p>
+                `;
+                allImagesGrid.appendChild(imgContainer);
+            });
+        }
+
+        function closeShowAll() {
+            document.getElementById('showAllModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Selection Tab Component JavaScript
+        const tabs = [
+            { id: 'description', name: 'DESCRIPTION' },
+            { id: 'amenities', name: 'AMENITIES' },
+            { id: 'availability', name: 'AVAILABILITY' },
+            { id: 'location', name: 'LOCATION' },
+            { id: 'cancellation', name: 'CANCELLATION POLICY' },
+            { id: 'reviews', name: 'REVIEWS' },
+        ];
+        
+        let activeTab = 'description';
+        let showMoreDescription = false;
+        let showMoreCancellation = false;
+        let currentPage = 1;
+        const itemsPerPage = 3;
+        const totalReviews = 132;
+        const totalPages = Math.ceil(totalReviews / itemsPerPage);
+
+        const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+        const juneCalendarDates = [
+            { day: 1, status: 'past' },
+            { day: 2, status: 'past' },
+            { day: 3, status: 'past' },
+            { day: 4, status: 'past' },
+            { day: 5, status: 'past' },
+            { day: 6, status: 'past' },
+            { day: 7, status: 'past' },
+            { day: 8, status: 'past' },
+            { day: 9, status: 'past' },
+            { day: 10, status: 'past' },
+            { day: 11, status: 'past' },
+            { day: 12, status: 'past' },
+            { day: 13, status: 'past' },
+            { day: 14, status: 'past' },
+            { day: 15, status: 'past' },
+            { day: 16, status: 'past' },
+            { day: 17, status: 'past' },
+            { day: 18, status: 'today' },
+            { day: 19, status: 'booked' },
+            { day: 20, status: 'booked' },
+            { day: 21, status: 'booked' },
+            { day: 22, status: 'booked' },
+            { day: 23, status: 'booked' },
+            { day: 24, status: 'booked' },
+            { day: 25, status: 'booked' },
+            { day: 26, status: 'booked' },
+            { day: 27, status: 'booked' },
+            { day: 28, status: 'booked' },
+            { day: 29, status: 'booked' },
+            { day: 30, status: 'booked' },
+        ];
+        
+        // Initialize thumbnails when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sure thumbnailPanel starts hidden
+            const thumbnailPanel = document.getElementById('thumbnailPanel');
+            if (thumbnailPanel) {
+                thumbnailPanel.classList.add('thumbnail-hidden');
+            }
+        });
+
+        const julyCalendarDates = [
+            { day: 1, status: 'booked' },
+            { day: 2, status: 'booked' },
+            { day: 3, status: 'booked' },
+            { day: 4, status: 'booked' },
+            { day: 5, status: 'booked' },
+            { day: 6, status: 'booked' },
+            { day: 7, status: 'booked' },
+            { day: 8, status: 'booked' },
+            { day: 9, status: 'booked' },
+            { day: 10, status: 'booked' },
+            { day: 11, status: 'available' },
+            { day: 12, status: 'available' },
+            { day: 13, status: 'booked' },
+            { day: 14, status: 'booked' },
+            { day: 15, status: 'booked' },
+            { day: 16, status: 'booked' },
+            { day: 17, status: 'booked' },
+            { day: 18, status: 'booked' },
+            { day: 19, status: 'available' },
+            { day: 20, status: 'booked' },
+            { day: 21, status: 'booked' },
+            { day: 22, status: 'booked' },
+            { day: 23, status: 'booked' },
+            { day: 24, status: 'booked' },
+            { day: 25, status: 'booked' },
+            { day: 26, status: 'booked' },
+            { day: 27, status: 'booked' },
+            { day: 28, status: 'booked' },
+            { day: 29, status: 'booked' },
+            { day: 30, status: 'booked' },
+            { day: 31, status: 'booked' },
+        ];
+
+        const allReviews = [
+            {
+                title: 'Wonderful stay',
+                author: 'Mel H',
+                date: 'Jun 2025',
+                content: 'Loved the location.',
+                rating: 5
+            },
+            {
+                title: 'Quick getaway',
+                author: 'Thurston D',
+                date: 'May 2025',
+                content: 'Just perfect!',
+                rating: 5
+            },
+            {
+                title: 'Great location with clean and comfortable accommodations.',
+                author: 'Michael P',
+                date: 'Mar 2025',
+                content: 'A fun get-away beach experience. We look forward to coming back.',
+                rating: 5
+            },
+            {
+                title: 'Perfect beach vacation',
+                author: 'Sarah J',
+                date: 'Feb 2025',
+                content: 'Everything was as described. Beautiful view and easy beach access.',
+                rating: 5
+            },
+            {
+                title: 'Relaxing weekend',
+                author: 'David L',
+                date: 'Jan 2025',
+                content: 'Clean, comfortable, and right on the beach. What more could you ask for?',
+                rating: 5
+            },
+            {
+                title: 'Amazing property',
+                author: 'Jessica R',
+                date: 'Dec 2024',
+                content: 'We loved our stay! The property was clean and the view was incredible.',
+                rating: 5
+            },
+        ];
+
+        // Initialize tabs
+        function initializeTabs() {
+            // This function can be simplified as we're using Bootstrap tabs now
+            // and our mobile tabs are handled by the setupMobileTabs function
+            
+            // If there's any legacy tab implementation, handle it here
+            const tabContainer = document.querySelector('.md\\:flex.space-x-8.px-6');
+            const tabSelect = document.getElementById('tabSelect');
+            
+            if (tabContainer && tabSelect && tabs && tabs.length > 0) {
+                // Clear existing tabs
+                tabContainer.innerHTML = '';
+                tabSelect.innerHTML = '';
+                
+                // Add tabs
+                tabs.forEach(tab => {
+                    // Desktop tabs
+                    const button = document.createElement('button');
+                    button.className = `py-4 px-2 text-sm cursor-pointer font-medium text-gray-700 hover:text-teal-600 ${activeTab === tab.id ? 'tab-active' : ''}`;
+                    button.textContent = tab.name;
+                    button.addEventListener('click', () => scrollSmoothToSection(tab.id));
+                    tabContainer.appendChild(button);
+                    
+                    // Mobile select options
+                    const option = document.createElement('option');
+                    option.value = tab.id;
+                    option.textContent = tab.name;
+                option.selected = activeTab === tab.id;
+                tabSelect.appendChild(option);
+            });
+            
+            // Add event listener to mobile select
+            tabSelect.addEventListener('change', () => scrollSmoothToSection(tabSelect.value));
+        }
+    }
+        // Show/hide more text for description and cancellation
+        function initializeShowMoreButtons() {
+            document.getElementById('showMoreDescriptionBtn').addEventListener('click', function() {
+                const moreDescription = document.getElementById('moreDescription');
+                const button = this;
+                if (moreDescription.classList.contains('hidden')) {
+                    moreDescription.classList.remove('hidden');
+                    button.querySelector('span').textContent = 'Show less';
+                    button.querySelector('i').classList.remove('fa-chevron-down');
+                    button.querySelector('i').classList.add('fa-chevron-up');
+                } else {
+                    moreDescription.classList.add('hidden');
+                    button.querySelector('span').textContent = 'Show more';
+                    button.querySelector('i').classList.remove('fa-chevron-up');
+                    button.querySelector('i').classList.add('fa-chevron-down');
+                }
+            });
+
+            document.getElementById('showMoreCancellationBtn').addEventListener('click', function() {
+                const moreCancellation = document.getElementById('moreCancellation');
+                const button = this;
+                if (moreCancellation.classList.contains('hidden')) {
+                    moreCancellation.classList.remove('hidden');
+                    button.querySelector('span').textContent = 'Show less';
+                    button.querySelector('i').classList.remove('fa-chevron-down');
+                    button.querySelector('i').classList.add('fa-chevron-up');
+                } else {
+                    moreCancellation.classList.add('hidden');
+                    button.querySelector('span').textContent = 'Show more';
+                    button.querySelector('i').classList.remove('fa-chevron-up');
+                    button.querySelector('i').classList.add('fa-chevron-down');
+                }
+            });
+        }
+
+        // Calendar initialization
+        function initializeCalendars() {
+            const juneCalendarGrid = document.getElementById('juneCalendar');
+            const julyCalendarGrid = document.getElementById('julyCalendar');
+            
+            // Add June calendar dates
+            juneCalendarDates.forEach(date => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = `calendar-date rounded-full w-10 h-10 flex items-center justify-center cursor-pointer text-sm ${getCalendarDateClass(date)}`;
+                dayDiv.textContent = date.day;
+                juneCalendarGrid.appendChild(dayDiv);
+            });
+            
+            // Add July calendar dates
+            julyCalendarDates.forEach(date => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = `calendar-date rounded-full w-10 h-10 flex items-center justify-center cursor-pointer text-sm ${getCalendarDateClass(date)}`;
+                dayDiv.textContent = date.day;
+                julyCalendarGrid.appendChild(dayDiv);
+            });
+        }
+
+        function getCalendarDateClass(date) {
+            switch (date.status) {
+                case 'past':
+                    return 'bg-gray-300 text-gray-600';
+                case 'today':
+                    return 'bg-teal-600 text-white font-semibold';
+                case 'available':
+                    return 'bg-gray-600 text-white';
+                case 'booked':
+                    return 'bg-teal-400 text-white';
+                default:
+                    return '';
+            }
+        }
+
+        // Reviews and pagination
+        function updateReviews() {
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            reviewsContainer.innerHTML = '';
+            
+            // Calculate visible reviews
+            const reviewStart = (currentPage - 1) * itemsPerPage;
+            const reviewEnd = Math.min(reviewStart + itemsPerPage, allReviews.length);
+            const visibleReviews = allReviews.slice(reviewStart, reviewEnd);
+            
+            // Add reviews
+            visibleReviews.forEach(review => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'bg-white p-6 border border-gray-200 rounded-lg shadow-sm review-card';
+                
+                let stars = '';
+                for (let i = 0; i < review.rating; i++) {
+                    stars += '<i class="fa-solid fa-star text-yellow-400"></i>';
+                }
+                
+                reviewDiv.innerHTML = `
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-medium text-lg">${review.title}</h3>
+                        <div class="flex space-x-1">${stars}</div>
+                    </div>
+                    <div class="flex items-center text-gray-500 text-sm mb-3">
+                        <span>${review.author}</span>
+                        <span class="mx-2">•</span>
+                        <span>${review.date}</span>
+                    </div>
+                    <p class="text-gray-600">${review.content}</p>
+                `;
+                
+                reviewsContainer.appendChild(reviewDiv);
+            });
+            
+            // Update review range text
+            const rangeStart = (currentPage - 1) * itemsPerPage + 1;
+            const rangeEnd = Math.min(currentPage * itemsPerPage, totalReviews);
+            document.getElementById('reviewRange').textContent = `Showing ${rangeStart} - ${rangeEnd} of ${totalReviews} reviews`;
+            
+            // Update pagination
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            // Previous button
+            const prevButton = document.createElement('button');
+            prevButton.className = `w-10 h-10 flex items-center justify-center rounded-md ${currentPage === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}`;
+            prevButton.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', prevPage);
+            pagination.appendChild(prevButton);
+            
+            // Page buttons
+            const displayedPages = getDisplayedPages();
+            displayedPages.forEach(page => {
+                if (page === '...') {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.className = 'w-10 h-10 flex items-center justify-center';
+                    ellipsis.textContent = '...';
+                    pagination.appendChild(ellipsis);
+                } else {
+                    const pageButton = document.createElement('button');
+                    pageButton.className = `w-10 h-10 flex items-center justify-center rounded-md ${currentPage === page ? 'bg-teal-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`;
+                    pageButton.textContent = page;
+                    pageButton.addEventListener('click', () => goToPage(page));
+                    pagination.appendChild(pageButton);
+                }
+            });
+            
+            // Next button
+            const nextButton = document.createElement('button');
+            nextButton.className = `w-10 h-10 flex items-center justify-center rounded-md ${currentPage === totalPages ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}`;
+            nextButton.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', nextPage);
+            pagination.appendChild(nextButton);
+        }
+
+        function getDisplayedPages() {
+            if (totalPages <= 7) {
+                return Array.from({ length: totalPages }, (_, i) => i + 1);
+            }
+
+            const pages = [1];
+
+            if (currentPage > 3) {
+                pages.push('...');
+            }
+
+            // Pages around current
+            const rangeStart = Math.max(2, currentPage - 1);
+            const rangeEnd = Math.min(totalPages - 1, currentPage + 1);
+
+            for (let i = rangeStart; i <= rangeEnd; i++) {
+                pages.push(i);
+            }
+
+            if (currentPage < totalPages - 2) {
+                pages.push('...');
+            }
+
+            pages.push(totalPages);
+
+            return pages;
+        }
+
+        function previousMonth() {
+            // Logic to navigate to previous month
+            // Would need API call in real application
+            alert('Previous month navigation would be implemented here');
+        }
+
+        function nextMonth() {
+            // Logic to navigate to next month
+            // Would need API call in real application
+            alert('Next month navigation would be implemented here');
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updateReviews();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateReviews();
+            }
+        }
+
+        function goToPage(page) {
+            if (typeof page === 'number') {
+                currentPage = page;
+                updateReviews();
+            }
+        }
+
+        function scrollSmoothToSection(sectionId) {
+            activeTab = sectionId;
+            initializeTabs(); // Update active tab styling
+            
+            const section = document.getElementById(sectionId);
+            if (section) {
+                // Calculate position with offset for the fixed header
+                const offset = 180; // Adding extra space below the header
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                // Scroll to the adjusted position
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Keyboard navigation handler
+        function handleKeyDown(e) {
+            if (document.getElementById('lightboxModal').classList.contains('hidden')) return;
+
+            switch (e.key) {
+                case 'ArrowLeft':
+                    previousImage();
+                    break;
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    nextImage();
+                    break;
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'f':
+                case 'F':
+                    toggleFullscreen();
+                    break;
+            }
+        }
+
+        // Fullscreen change handler
+        function handleFullscreenChange() {
+            isFullscreen = !!document.fullscreenElement;
+            if (isFullscreen) {
+                document.getElementById('fullscreenIcon').classList.remove('fa-expand');
+                document.getElementById('fullscreenIcon').classList.add('fa-compress');
+            } else {
+                document.getElementById('fullscreenIcon').classList.remove('fa-compress');
+                document.getElementById('fullscreenIcon').classList.add('fa-expand');
+            }
+        }
+
+        // Initialize everything when the page loads
+        // Function for smooth scrolling to sections
+        function setupSmoothScrolling() {
+            const scrollLinks = document.querySelectorAll('.quick-nav-link');
+            
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight active section based on scroll position
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                
+                document.querySelectorAll('.section-scroll').forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        document.querySelectorAll('.quick-nav-link').forEach(link => {
+                            link.classList.remove('active-section');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active-section');
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Function to handle show more/less buttons
+        function handleShowMoreButtons() {
+            const showMoreButtons = document.querySelectorAll('.show-more-btn');
+            
+            showMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    const shortContent = document.querySelector(`.${section}-short`);
+                    const fullContent = document.querySelector(`.${section}-full`);
+                    
+                    if (fullContent && shortContent) {
+                        if (fullContent.classList.contains('hidden-content')) {
+                            // Show full content
+                            fullContent.classList.remove('hidden-content');
+                            shortContent.style.display = 'none';
+                            this.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                        } else {
+                            // Show short content
+                            fullContent.classList.add('hidden-content');
+                            shortContent.style.display = 'block';
+                            this.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+                        }
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTabs();
+            initializeShowMoreButtons();
+            initializeCalendars();
+            updateReviews();
+            setupSmoothScrolling(); // Setup smooth scrolling navigation
+            handleShowMoreButtons(); // Handle show more/less buttons
+            
+            // Set up event listeners for keyboard navigation
+            window.addEventListener('keydown', handleKeyDown);
+            document.addEventListener('fullscreenchange', handleFullscreenChange);
+            
+            // Add active-section class style
+            const style = document.createElement('style');
+            style.textContent = `
+                .active-section {
+                    border-bottom: 2px solid #ffffff;
+                    font-weight: bold;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
 </html>
