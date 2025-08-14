@@ -713,6 +713,29 @@
             border: 1px solid #dddddd !important;
         }
         
+        /* Sticky booking widget */
+        .sticky-booking-widget {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            transition: all 0.3s ease;
+            max-height: calc(100vh - 40px); /* Adjust max height to prevent overflow */
+            overflow-y: auto; /* Add scrolling for taller booking widgets */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        /* Ensure sticky widget works properly on mobile */
+        @media (max-width: 991px) {
+            .sticky-booking-widget {
+                position: relative;
+                top: 0;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+        }
+        
         /* Active section highlight */
         .active-section {
             border-bottom: 2px solid #000000;
@@ -906,7 +929,7 @@
             <div class="property-details-bg">
                 <!-- Quick Navigation -->
                 <div class="quick-nav mb-4">
-                    <div class="d-flex justify-content-center gap-4 pb-2">
+                    <div class="d-flex gap-4 pb-2">
                         <a href="#overview-section" class="quick-nav-link">OVERVIEW</a>
                         <a href="#amenities-section" class="quick-nav-link">AMENITIES</a>
                         <a href="#availability-section" class="quick-nav-link">AVAILABILITY</a>
@@ -1460,7 +1483,7 @@
                                 
                                 
                                 
-                               
+                              
                             </div>
                             
                             
@@ -1554,7 +1577,7 @@
             
             <div class="col-lg-4">
                 <!-- Booking Widget -->
-                <div class="booking-widget" style="background-color: #ffffff; border: 1px solid #dddddd;">
+                <div class="booking-widget sticky-booking-widget" style="background-color: #ffffff; border: 1px solid #dddddd;">
                     <h4 class="mb-4 text-dark">Book Your Stay</h4>
                     <form>
                         <div class="date-input">
@@ -2432,6 +2455,27 @@
             });
         }
 
+        // Function to enhance sticky booking widget behavior
+        function setupStickyBookingWidget() {
+            const bookingWidget = document.querySelector('.sticky-booking-widget');
+            if (!bookingWidget) return;
+            
+            let lastScrollPosition = 0;
+            
+            window.addEventListener('scroll', function() {
+                const currentScrollPosition = window.scrollY;
+                
+                // Add shadow when scrolling down
+                if (currentScrollPosition > 100) {
+                    bookingWidget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                } else {
+                    bookingWidget.style.boxShadow = 'none';
+                }
+                
+                lastScrollPosition = currentScrollPosition;
+            });
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             initializeTabs();
             initializeShowMoreButtons();
@@ -2439,6 +2483,7 @@
             updateReviews();
             setupSmoothScrolling(); // Setup smooth scrolling navigation
             handleShowMoreButtons(); // Handle show more/less buttons
+            setupStickyBookingWidget(); // Setup sticky booking widget behavior
             
             // Set up event listeners for keyboard navigation
             window.addEventListener('keydown', handleKeyDown);
