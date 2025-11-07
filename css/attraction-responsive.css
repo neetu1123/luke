@@ -1,0 +1,124 @@
+/* Responsive CSS for Attractions Page */
+
+/* Desktop View Optimizations */
+@media (min-width: 1600px) {
+    .how-we-value-wrapp .container {
+        max-width: 1440px;
+    }
+    
+    .section-heading h2 {
+        font-size: 2.8rem;
+    }
+    
+    .img-card {
+        height: 400px;
+    }
+    
+    .atr-cont h4 {
+        font-size: 22px;
+    }
+}
+
+/* Large Screens Adjustments */
+@media (min-width: 1400px) and (max-width: 1599px) {
+    .how-we-value-wrapp .container {
+        max-width: 1320px;
+    }
+    
+    .img-card {
+        height: 380px;
+    }
+    
+    .atr-cont h4 {
+        font-size: 21px;
+    }
+}
+
+/* Medium Desktop Screens */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .how-we-value-wrapp .container {
+        max-width: 1140px;
+    }
+    
+    .img-card {
+        height: 340px;
+    }
+    
+    .atr-cont h4 {
+        font-size: 20px;
+    }
+}
+
+/* Smaller Desktop and Large Tablets */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .how-we-value-wrapp .container {
+        max-width: 960px;
+    }
+    
+    .img-card {
+        height: 280px;
+    }
+    
+    .atr-cont h4 {
+        font-size: 18px;
+    }
+    
+    .section-heading h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .atrr {
+        margin-bottom: 25px;
+    }
+    
+    .atrr .img-card {
+        height: 220px;
+    }
+    
+    .atr-cont {
+        margin-top: 10px;
+    }
+    
+    .atr-cont h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .how-we-value-wrapp.atr {
+        padding: 40px 0;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 576px) {
+    .atrr .img-card {
+        height: 200px;
+    }
+    
+    .how-we-value-wrapp.atr {
+        padding: 30px 0;
+    }
+    
+    .atr-cont h4 {
+        font-size: 15px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+    .atrr .img-card {
+        height: 180px;
+    }
+    
+    .how-we-value-wrapp.atr {
+        padding: 20px 0;
+    }
+}

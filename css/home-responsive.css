@@ -1,0 +1,527 @@
+/* Responsive CSS for Bentonville Lodging Company Website */
+
+/* Large Screens - Minor Adjustments */
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .hero-section {
+        height: 75vh;
+    }
+    
+    .property-image {
+        height: 300px;
+    }
+    
+    .reviews-slider-container {
+        height: auto;
+        min-height: 380px;
+    }
+    
+    .review-card {
+        height: auto;
+        min-height: 350px;
+    }
+}
+
+/* Laptop and Small Desktops */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 3rem;
+    }
+    
+    .search-container {
+        width: 95%;
+    }
+    
+    .about-content {
+        gap: 40px;
+    }
+    
+    .about-illustration img {
+        height: 400px;
+    }
+    
+    .section-subtitle {
+        max-width: 85%;
+    }
+    
+    .review-card {
+        padding: 30px;
+        margin: 15px;
+    }
+    
+    .prev-btn {
+        left: 0;
+    }
+    
+    .next-btn {
+        right: 0;
+    }
+}
+
+/* Tablets and Smaller Laptops */
+@media (max-width: 992px) {
+    .hero-section {
+        height: 70vh;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+    
+    .hero-subtitle {
+        font-size: 2.5rem;
+    }
+    
+    .hero-logo {
+        width: 250px;
+    }
+    
+    /* Fix search box position */
+    .search-container {
+        bottom: -80px;
+    }
+    
+    /* Properties section needs more top margin to avoid overlap */
+    .properties-section {
+        margin-top: 120px;
+    }
+    
+    /* Make about section stack vertically */
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-illustration {
+        order: 1;
+        margin-bottom: 30px;
+    }
+    
+    .about-text {
+        order: 2;
+    }
+    
+    .about-illustration img {
+        height: 350px;
+    }
+    
+    /* Newsletter section */
+    .newsletter-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .newsletter-form {
+        width: 100%;
+    }
+    
+    .section-subtitle {
+        max-width: 95%;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        padding: 150px 0 180px;
+    }
+    
+    .search-container {
+        position: relative;
+        bottom: -120px;
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .search-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-search {
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    /* Adjust properties section to avoid search bar overlap */
+    .properties-section {
+        margin-top: 150px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+    
+    .hero-subtitle {
+        font-size: 2.2rem;
+        margin-top: -5px;
+    }
+    
+    .hero-location {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+    
+    /* Make review cards smaller */
+    .review-card {
+        padding: 20px;
+        margin: 10px 5px;
+        height: auto;
+        min-height: 300px;
+    }
+    
+    .review-text {
+        font-size: 1rem;
+    }
+    
+    /* Fix adult popup positioning and layout */
+    .adult-popup {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+    
+    /* Newsletter input and button */
+    .input-button-wrapper {
+        flex-direction: column;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+        border-radius: 4px;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+    
+    .newsletter-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Attraction cards smaller height */
+    .attraction-card {
+        height: 300px;
+    }
+    
+    .about-illustration img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 120px 0 150px;
+    }
+    
+    .hero-content {
+        margin-bottom: 40px;
+    }
+    
+    .hero-logo {
+        width: 180px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    /* Fix search container */
+    .search-container {
+        bottom: -100px;
+        padding: 15px 10px;
+        width: 95%;
+    }
+    
+    .properties-section {
+        margin-top: 130px;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .property-title {
+        font-size: 1.3rem;
+    }
+    
+    .property-detail span {
+        font-size: 0.8rem;
+    }
+    
+    /* Smaller attraction cards */
+    .attraction-card {
+        height: 250px;
+    }
+    
+    .design-card-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .card-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    /* Reviews section fixes */
+    .reviews-section {
+        padding: 70px 0;
+    }
+    
+    .reviews-title {
+        margin-bottom: 30px;
+        font-size: 1.7rem;
+    }
+    
+    .review-title {
+        font-size: 1.1rem;
+    }
+    
+    .reviews-slider-container {
+        padding-bottom: 40px;
+    }
+    
+    /* About section text sizes */
+    .about-section {
+        padding: 70px 0;
+    }
+    
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    /* Guest popup */
+    .adult-popup {
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 1.7rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.6rem;
+    }
+    
+    .hero-location {
+        font-size: 0.9rem;
+    }
+    
+    .hero-logo {
+        width: 150px;
+    }
+    
+    .search-container {
+        padding: 10px;
+    }
+    
+    .form-control {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .btn-search {
+        padding: 15px;
+    }
+    
+    .property-image {
+        height: 220px;
+    }
+    
+    .newsletter-title {
+        font-size: 1.5rem;
+    }
+    
+    .attraction-card {
+        height: 200px;
+    }
+    
+    .review-title {
+        font-size: 1rem;
+    }
+    
+    .review-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .prev-btn, .next-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Touch Optimizations */
+.attraction-card.touch-active .card-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.attraction-card.touch-active .design-card-content {
+    opacity: 0;
+}
+
+.attraction-card.touch-active .card-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.attraction-card.touch-active .card-background img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+@media (hover: none) {
+    .explore-btn:active {
+        color: #ffffff;
+        transform: translateX(5px);
+    }
+    
+    .explore-btn:active i {
+        transform: translateX(3px);
+    }
+    
+    .review-card {
+        height: auto;
+    }
+}
+
+/* Fix for adult popup and guest selector */
+.adult-popup {
+    position: absolute;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 100;
+    padding: 20px;
+}
+
+@media (max-width: 576px) {
+    .adult-popup {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+    }
+}
+
+/* Fix for datepicker on small screens */
+.datepicker-main {
+    position: relative;
+    z-index: 90;
+}
+
+/* Enhanced datepicker styling for mobile */
+@media (max-width: 768px) {
+    .datepicker__inner {
+        width: 100% !important;
+        flex-direction: column !important;
+    }
+    
+    .datepicker__months {
+        width: 100% !important;
+    }
+    
+    .datepicker__month {
+        width: 100% !important;
+    }
+    
+    .datepicker__month-caption {
+        height: auto !important;
+        padding: 10px 5px !important;
+    }
+    
+    .datepicker__month-name {
+        font-size: 14px !important;
+    }
+    
+    .datepicker__week-day {
+        font-size: 12px !important;
+        padding: 5px 0 !important;
+    }
+    
+    .datepicker__month-day {
+        font-size: 12px !important;
+        padding: 7px 5px !important;
+    }
+    
+    .datepicker__close-button {
+        margin-bottom: 10px !important;
+    }
+    
+    /* Fix adult popup on mobile */
+    .adult-popup {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 15px 15px 0 0 !important;
+        z-index: 1000 !important;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.15) !important;
+        animation: slideUp 0.3s forwards;
+    }
+    
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+    
+    .adult-box {
+        margin-bottom: 15px !important;
+    }
+}

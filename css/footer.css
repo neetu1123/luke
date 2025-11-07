@@ -99,10 +99,10 @@
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
     }
     
     .footer-social {
-        justify-content: center;
+        justify-content: flex-start;
     }
 }

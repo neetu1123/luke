@@ -1,0 +1,106 @@
+/* Quick navigation styles */
+.quick-nav {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.quick-nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    margin-right: 20px;
+}
+
+.quick-nav-link:hover {
+    color: #555555;
+    border-bottom: 2px solid #000;
+}
+
+.active-section {
+    border-bottom: 2px solid #000000;
+    font-weight: bold;
+}
+
+.section-container {
+    transition: opacity 0.5s ease;
+    padding: 25px 0;
+    opacity: 0.9;
+}
+
+.section-container:target {
+    opacity: 1;
+}
+
+.section-scroll {
+    scroll-margin-top: 100px;
+}
+
+/* Hide full content initially */
+.hidden-content {
+    display: none;
+}
+
+/* Show more button styling */
+.show-more-btn {
+    color: #000000;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+    color: #555555;
+}
+
+/* Sticky booking widget */
+.sticky-booking-widget {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+}
+
+/* Content sections */
+.content-sections {
+    padding: 20px 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .quick-nav .d-flex {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .sticky-booking-widget {
+        position: relative;
+        top: 0;
+        margin: 20px 0;
+    }
+}
+
+/* Card styles for amenities */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
